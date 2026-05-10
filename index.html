@@ -199,10 +199,101 @@ let elapsedTime = 0;
 
 // 나중에 구글 시트 연동 시 이 부분을 교체할 수 있습니다.
 const sentences = [
-  { en: "One valuable technique for getting out of helplessness is to choose to be with others.", ko: "무력감에서 벗어나는 한 가지 유용한 기술은 다른 사람들과 함께 있기로 선택하는 것이다." },
-  { en: "This is one of the great powers of selfhelp groups.", ko: "이것은 자조 집단의 큰 힘 중 하나이다." },
-  { en: "Merely to be in their presence is beneficial.", ko: "단지 그들과 함께 있는 것만으로도 유익하다." },
-  { en: "In some selfhelp groups, this is called hanging out with the winners.", ko: "일부 자조 집단에서는 이것을 승자들과 어울리기라고 부른다." }
+  { en: "I put my hand out, / and it reached out to me.", 
+    ko: "내가 손을 내밀었다 / 그러자 그것은 나에게 팔을 뻗었다." },
+
+  { en: "After another week, / it started to wave / like a human friend / saying, 'Hi, I'm excited to see you.'", 
+    ko: "또 일주일이 지나자 / 그것은 손을 흔들기 시작했다 / 마치 인간 친구처럼 / '안녕, 널 만나서 반가워.'라고 말하면서." },
+
+  { en: "I kept still, / and it covered my whole hand.", 
+    ko: "나는 가만히 있었다 / 그리고 그것이 내 손 전체를 덮었다." },
+
+  { en: "Since I had to take a breath, / I swam toward the surface.", 
+    ko: "나는 숨을 쉬어야 했기 때문에 / 수면 쪽으로 헤엄쳤다." },
+
+  { en: "To my surprise, / it rode on my hand / all the way to the top.", 
+    ko: "놀랍게도 / 그것은 내 손을 타고 올라왔다 / 꼭대기까지 가는 내내." },
+
+  { en: "There I was, / just staring into the eyes of this incredible creature.", 
+    ko: "나는 그곳에 있었다 / 이 놀라운 생명체의 눈을 바라보면서." },
+
+  { en: "It sparked my curiosity / in a way that I had not experienced before.", 
+    ko: "그것은 나의 호기심을 자극했다 / 내가 전에 경험해 보지 못한 방식으로." },
+
+  { en: "Had I gained its trust?", 
+    ko: "내가 그것의 신뢰를 얻은 걸까?" },
+
+  { en: "I started reading books about octopuses, / but I wanted to learn more about this marvelous creature.", 
+    ko: "나는 문어에 관한 책을 읽기 시작했다 / 하지만 이 놀라운 생명체에 대해 더 알고 싶었다." },
+
+  { en: "The first thing I learned / was that 'it' was a 'she.'", 
+    ko: "내가 가장 먼저 알게 된 것은 / '그것'이 '암컷'이라는 사실이었다." },
+
+  { en: "Getting Closer", 
+    ko: "더 가까워지기" },
+
+  { en: "Danger in the form of pyjama sharks, the area's biggest predators, / came with little warning in the sea.", 
+    ko: "이 지역의 가장 큰 포식자인 파자마 상어의 형태를 한 위험은 / 바다에서 거의 예고 없이 찾아왔다." },
+
+  { en: "The octopus was moving around near the edge of the seaweed forest, / and I saw a shark tracking her.", 
+    ko: "문어가 해초 숲 가장자리 근처에서 움직이고 있었다 / 그리고 나는 상어가 그녀를 추적하는 것을 보았다." },
+
+  { en: "In an instant, / she swam into a crack to escape, / but the shark was faster.", 
+    ko: "순식간에 / 그녀는 도망치기 위해 틈새로 헤엄쳤다 / 하지만 상어가 더 빨랐다." },
+
+  { en: "The shark had taken a bite of one of her arms / and was waiting for her.", 
+    ko: "상어는 그녀의 팔 하나를 물어뜯었고 / 그녀를 기다리고 있었다." },
+
+  { en: "I wanted to save my friend, / but in this environment, / I could only observe.", 
+    ko: "나는 내 친구를 구하고 싶었다 / 하지만 이런 환경에서는 / 관찰만 할 수 있었다." },
+
+  { en: "She managed to get deeper into the crack, / but she was bleeding.", 
+    ko: "그녀는 가까스로 틈 안쪽으로 더 깊이 들어갔다 / 하지만 피를 흘리고 있었다." },
+
+  { en: "After a while, / the shark lost interest, / and the octopus used the opportunity to get back to her den, / without one of her arms.", 
+    ko: "잠시 후 / 상어는 흥미를 잃었다 / 그리고 문어는 그 기회를 이용해 자신의 굴로 돌아갔다 / 팔 하나를 잃은 채로." },
+
+  { en: "She was in serious danger / because her arms function / like the hands, legs, nose, and eyes of humans.", 
+    ko: "그녀는 심각한 위험에 처해 있었다 / 그녀의 팔은 기능하기 때문이다 / 인간의 손, 다리, 코, 눈처럼." },
+
+  { en: "The next day, / I was relieved to see that she had survived.", 
+    ko: "다음 날 / 나는 그녀가 살아남은 것을 보고 안도했다." },
+
+  { en: "She was weak, / and her colors were not as bright.", 
+    ko: "그녀는 약해져 있었고 / 몸의 색도 밝지 않았다." },
+
+  { en: "I checked on her every day, / wondering if that day would be the last.", 
+    ko: "나는 매일 그녀를 확인했다 / 그날이 마지막이 될까 걱정하면서." },
+
+  { en: "It was emotionally painful / to witness these things happening to her.", 
+    ko: "그녀에게 이런 일들이 일어나는 것을 보는 것은 / 감정적으로 고통스러웠다." },
+
+  { en: "Recovery, Growth, and Sacrifice", 
+    ko: "회복, 성장, 그리고 희생" },
+
+  { en: "A short while later, / I saw that the wound had healed.", 
+    ko: "잠시 후 / 나는 상처가 아문 것을 보았다." },
+
+  { en: "To my amazement, / a little arm started to grow back, / and she started to become active again.", 
+    ko: "놀랍게도 / 작은 팔이 다시 자라기 시작했고 / 그녀는 다시 활발해지기 시작했다." },
+
+  { en: "I started to compare my life / to life in the unforgiving sea.", 
+    ko: "나는 내 삶을 비교하기 시작했다 / 가혹한 바다에서의 삶과." },
+
+  { en: "I thought of what was valuable in life.", 
+    ko: "나는 삶에서 무엇이 가치 있는지 생각했다." },
+
+  { en: "I began to spend more time with my family and friends, / and I even started to dive with my young son.", 
+    ko: "나는 가족과 친구들과 더 많은 시간을 보내기 시작했고 / 어린 아들과 함께 다이빙까지 시작했다." },
+
+  { en: "He became just as interested in her as I was.", 
+    ko: "그는 내가 그랬던 것만큼 그녀에게 관심을 갖게 되었다." },
+
+  { en: "As the octopus's arm became more functional, / I felt things in my life were improving too.", 
+    ko: "문어의 팔이 더 잘 기능하게 되면서 / 내 삶도 나아지고 있다고 느꼈다." },
+
+  { en: "An octopus's average life is about a year, / which ends after reproducing.", 
+    ko: "문어의 평균 수명은 약 1년이며 / 번식 후 끝난다." }
 ];
 let currentIndex = 0;
 
