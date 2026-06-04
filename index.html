@@ -199,99 +199,88 @@ let elapsedTime = 0;
 
 // 나중에 구글 시트 연동 시 이 부분을 교체할 수 있습니다.
 const sentences = [
-  { en: "I returned to the Cape of Good Hope, South Africa, / where I had spent my childhood, / after over 20 years of movie-making.", 
-    ko: "나는 남아프리카공화국의 희망봉으로 돌아갔다 / 그곳은 내가 어린 시절을 보냈던 곳이다 / 20년이 넘는 영화 제작 생활 후에." },
-
-  { en: "I went diving / in the cold sea off the coast of the Cape, / and it was among the dense seaweed forests / where I met an octopus.", 
-    ko: "나는 다이빙하러 갔다 / 희망봉 해안 앞의 차가운 바다에서 / 그리고 울창한 해초 숲 사이에서 / 나는 문어를 만났다." },
-
-  { en: "First Encounter", 
-    ko: "첫 만남" },
-
-  { en: "I saw a fish peacefully swimming / near a heap of shells.", 
-    ko: "나는 평화롭게 헤엄치는 물고기를 보았다 / 조개더미 근처에서." },
-
-  { en: "Suddenly, / an octopus sprang from the heap / and grabbed the fish.", 
-    ko: "갑자기 / 문어 한 마리가 조개더미에서 튀어나와 / 그 물고기를 붙잡았다." },
-
-  { en: "Amazed at the cleverness of the octopus, / I swam a little closer, / but it disappeared.", 
-    ko: "문어의 영리함에 놀라 / 나는 조금 더 가까이 헤엄쳤지만 / 그것은 사라졌다." },
-
-  { en: "In fact, / it had lifted a piece of seaweed, / wrapped it around itself, / and was staring at me out of a little gap.", 
-    ko: "사실 / 그것은 해초 한 조각을 들어 올려 / 자신의 몸에 감싸고 / 작은 틈 사이로 나를 바라보고 있었다." },
-
-  { en: "What an extraordinary creature!", 
-    ko: "정말 놀라운 생명체였다!" },
-
-  { en: "I wondered / what would happen if I kept watching it.", 
-    ko: "나는 궁금했다 / 내가 계속 그것을 지켜본다면 무슨 일이 일어날지." },
-
-  { en: "To see the world from the octopus's perspective, / I left a camera near the den / and started visiting regularly.", 
-    ko: "문어의 관점에서 세상을 보기 위해 / 나는 굴 근처에 카메라를 두고 / 정기적으로 방문하기 시작했다." },
-
-  { en: "I even mapped the environment / around the den.", 
-    ko: "나는 심지어 환경까지 지도에 표시했다 / 굴 주변의." },
-
-  { en: "Expecting some drama to come, / I waited.", 
-    ko: "어떤 극적인 일이 일어나기를 기대하며 / 나는 기다렸다." },
-
-  { en: "Making Friends", 
-    ko: "친구 만들기" },
-
-  { en: "The octopus became less scared / as I visited more often.", 
-    ko: "문어는 덜 무서워하게 되었다 / 내가 더 자주 방문하자." },
-
-  { en: "After about a month, / it came near me.", 
-    ko: "약 한 달 후 / 그것은 내 가까이 다가왔다." },
-
-  { en: "I put my hand out, / and it reached out to me.", 
-    ko: "내가 손을 내밀자 / 그것도 나에게 팔을 뻗었다." },
-
-  { en: "After another week, / it started to wave / like a human friend / saying, 'Hi, I'm excited to see you.'", 
-    ko: "또 일주일 후 / 그것은 손을 흔들기 시작했다 / 인간 친구처럼 / '안녕, 너를 만나서 반가워.'라고 말하면서." },
-
-  { en: "I kept still, / and it covered my whole hand.", 
-    ko: "나는 가만히 있었고 / 그것은 내 손 전체를 덮었다." },
-
-  { en: "Since I had to take a breath, / I swam toward the surface.", 
-    ko: "나는 숨을 쉬어야 했기 때문에 / 수면 쪽으로 헤엄쳤다." },
-
-  { en: "To my surprise, / it rode on my hand / all the way to the top.", 
-    ko: "놀랍게도 / 그것은 내 손 위에 올라탄 채 / 끝까지 함께 올라왔다." },
-
-  { en: "There I was, / just staring into the eyes of this incredible creature.", 
-    ko: "나는 그곳에서 / 이 놀라운 생명체의 눈을 바라보고 있었다." },
-
-  { en: "It sparked my curiosity / in a way that I had not experienced before.", 
-    ko: "그것은 내 호기심을 자극했다 / 내가 전에 경험하지 못한 방식으로." },
-
-  { en: "Had I gained its trust?", 
-    ko: "내가 그것의 신뢰를 얻은 걸까?" },
-
-  { en: "I started reading books about octopuses, / but I wanted to learn more about this marvelous creature.", 
-    ko: "나는 문어에 관한 책을 읽기 시작했지만 / 이 놀라운 생명체에 대해 더 알고 싶었다." },
-
-  { en: "The first thing I learned / was that 'it' was a 'she.'", 
-    ko: "내가 가장 먼저 알게 된 것은 / '그것'이 암컷이라는 사실이었다." },
-
-  { en: "Getting Closer", 
-    ko: "더 가까워지기" },
-
-  { en: "Danger in the form of pyjama sharks, the area's biggest predators, / came with little warning in the sea.", 
-    ko: "이 지역 최대의 포식자인 파자마 상어라는 형태의 위험은 / 바다에서 거의 예고 없이 찾아왔다." },
-
-  { en: "The octopus was moving around near the edge of the seaweed forest, / and I saw a shark tracking her.", 
-    ko: "문어는 해초 숲 가장자리 근처를 움직이고 있었고 / 나는 상어가 그녀를 추적하는 것을 보았다." },
-
-  { en: "In an instant, / she swam into a crack to escape, / but the shark was faster.", 
-    ko: "순식간에 / 그녀는 도망치기 위해 틈으로 헤엄쳐 들어갔지만 / 상어가 더 빨랐다." },
-
-  { en: "The shark had taken a bite of one of her arms / and was waiting for her.", 
-    ko: "상어는 그녀의 팔 하나를 물어뜯고 / 그녀를 기다리고 있었다." },
-
-  { en: "I wanted to save my friend, / but in this environment, / I could only observe.", 
-    ko: "나는 내 친구를 구하고 싶었지만 / 이런 환경에서는 / 그저 지켜볼 수밖에 없었다." }
+  {
+    en: "A month ago, I flew to San Francisco, feeling excited and a little scared that I was traveling without my parents.",
+    ko: "한 달 전에 나는 샌프란시스코로 날아갔다. 부모님 없이 여행한다는 설렘과 약간의 두려움을 느끼며."
+  },
+  {
+    en: "My only companions would be my best friend, Dan, and my wheelchair.",
+    ko: "내 유일한 동반자는 가장 친한 친구 Dan과 내 휠체어였다."
+  },
+  {
+    en: "I wasn't sure what kinds of challenges we would face, but Dan assured me that we would be the coolest travelers in Northern California.",
+    ko: "나는 우리가 어떤 어려움을 마주하게 될지 확신하지 못했지만 Dan은 우리가 북부 캘리포니아에서 가장 멋진 여행자들이 될 것이라고 안심시켰다."
+  },
+  {
+    en: "When we finally landed in San Francisco, the Golden Gate City, Dan shouted, 'Let's get rolling!'",
+    ko: "마침내 우리가 금문교의 도시 샌프란시스코에 도착했을 때 Dan은 '출발해 보자!'라고 외쳤다."
+  },
+  {
+    en: "Known for its rolling hills, the city has an extensive public transportation system.",
+    ko: "구불구불한 언덕으로 유명한 그 도시는 광범위한 대중교통 체계를 갖추고 있다."
+  },
+  {
+    en: "I was disappointed to find out that the historic cable cars, which I had been looking forward to riding, do not accommodate wheelchair users.",
+    ko: "나는 무척 기대했던 유서 깊은 케이블카가 휠체어 사용자를 수용할 수 없다는 사실을 알고 실망했다."
+  },
+  {
+    en: "Therefore, we decided to take a city tour bus with wheelchair access.",
+    ko: "그래서 우리는 휠체어 이용이 가능한 도시 관광버스를 타기로 결정했다."
+  },
+  {
+    en: "When Dan and I got on the bus, the friendly driver welcomed us aboard, and we were off.",
+    ko: "Dan과 내가 버스에 올라탔을 때 친절한 운전기사가 우리를 반갑게 맞아주었고 우리는 출발했다."
+  },
+  {
+    en: "Fisherman's Wharf is popular for its pretty shops and seafood restaurants.",
+    ko: "피셔맨스 워프는 예쁜 가게들과 해산물 식당들로 유명하다."
+  },
+  {
+    en: "We were hungry, but it took almost an hour for us to look around and decide what to eat for lunch.",
+    ko: "우리는 배가 고팠지만 주변을 둘러보고 점심으로 무엇을 먹을지 결정하는 데 거의 한 시간이 걸렸다."
+  },
+  {
+    en: "We chose to eat a roasted crab and clam chowder soup.",
+    ko: "우리는 구운 게와 클램 차우더 수프를 먹기로 했다."
+  },
+  {
+    en: "The sea lions peacefully lying on the floats near the pier looked like melting chocolate.",
+    ko: "부두 근처 부유물에 평화롭게 누워 있는 바다사자들은 녹아내리는 초콜릿처럼 보였다."
+  },
+  {
+    en: "They didn't smell pleasant up close, yet their cuteness delayed our visit to the Golden Gate Bridge, the famous spot that appears in most movies and TV shows filmed in San Francisco.",
+    ko: "가까이에서는 냄새가 좋지 않았지만 그들의 귀여움 때문에 우리는 샌프란시스코에서 촬영된 대부분의 영화와 TV 프로그램에 등장하는 금문교 방문을 늦추게 되었다."
+  },
+  {
+    en: "We took a cruise, enjoying the view of the city.",
+    ko: "우리는 유람선을 타고 도시의 경치를 즐겼다."
+  },
+  {
+    en: "As we passed the bridge, the summer breeze blew slowly, and we watched the beautiful sunset.",
+    ko: "우리가 다리를 지날 때 여름 산들바람이 천천히 불었고 우리는 아름다운 석양을 바라보았다."
+  },
+  {
+    en: "The next day, we traveled to Yosemite National Park, a place four hours away from San Francisco and about five times bigger than Seoul.",
+    ko: "다음 날 우리는 샌프란시스코에서 4시간 거리에 있고 서울보다 약 5배 큰 요세미티 국립공원으로 갔다."
+  },
+  {
+    en: "The park is famous for Northern California's natural scenery of grand waterfalls, valleys, and countless forests.",
+    ko: "그 공원은 웅장한 폭포와 계곡, 셀 수 없이 많은 숲이 어우러진 북부 캘리포니아의 자연경관으로 유명하다."
+  },
+  {
+    en: "Dan's uncle Roy, who lives in San Francisco, kindly gave us a ride to the park.",
+    ko: "샌프란시스코에 사는 Dan의 삼촌 Roy는 친절하게 우리를 공원까지 태워 주었다."
+  },
+  {
+    en: "While heading east in his car, we saw the scenery gradually changing from city to suburb, to forest, and finally, to mountain.",
+    ko: "그의 차를 타고 동쪽으로 향하는 동안 우리는 풍경이 도시에서 교외로, 숲으로, 그리고 마침내 산으로 바뀌는 것을 보았다."
+  },
+  {
+    en: "By lunchtime, we arrived at the park, and each of us had a giant hamburger to fuel up for a hike.",
+    ko: "점심시간쯤 우리는 공원에 도착했고 하이킹을 위한 힘을 보충하기 위해 각자 커다란 햄버거를 먹었다."
+  }
 ];
+  
 let currentIndex = 0;
 
 function loadSentence() {
