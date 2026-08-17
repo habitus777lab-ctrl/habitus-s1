@@ -5,22 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Habitus Speaking</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
-    --primary: #6366f1;
-    --primary-hover: #4f46e5;
-    --primary-light: #e0e7ff;
-    --secondary: #10b981;
-    --accent: #f43f5e;
-    --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    --card-bg: rgba(255, 255, 255, 0.95);
-    --text-main: #0f172a;
-    --text-muted: #64748b;
-    --border-color: #e2e8f0;
-    --shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.08), 0 8px 10px -6px rgba(99, 102, 241, 0.08);
+    --primary-color: #4f46e5;
+    --primary-light: #eef2ff;
+    --secondary-color: #10b981;
+    --accent-color: #f59e0b;
+    --text-dark: #1e293b;
+    --text-gray: #64748b;
+    --border: #e2e8f0;
+    --bg: #f5f7ff;
 }
 
 * {
@@ -30,293 +26,319 @@
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
-    background: var(--bg-gradient);
-    color: var(--text-main);
+    font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+    background: linear-gradient(135deg, #f5f7ff 0%, #e4eaff 100%);
+    color: var(--text-dark);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-/* Header */
 .header {
-    height: 75px;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
+    height: 70px;
+    background: white;
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    border-bottom: 1px solid var(--border-color);
+    justify-content: space-between;
+    padding: 0 24px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .text-logo {
-    position: absolute;
-    left: 24px;
-    font-size: 20px;
-    font-weight: 800;
-    background: linear-gradient(135deg, #6366f1, #a855f7);
+    font-size: 22px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #ff6a97, #9333ea);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: -0.5px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-btn {
+    background: #f1f5f9;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-gray);
+    cursor: pointer;
+    transition: 0.15s;
+}
+.icon-btn.active {
+    background: var(--primary-light);
+    color: var(--primary-color);
+}
+.icon-btn.bookmarked {
+    background: #fef3c7;
+    color: #d97706;
 }
 
 .title {
     font-size: 18px;
-    font-weight: 700;
-    color: var(--text-main);
+    font-weight: 800;
+    background: linear-gradient(to right, #4f46e5, #9333ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* Container */
 .container {
+    max-width: 760px;
     width: 100%;
-    max-width: 680px;
-    margin: 40px auto;
-    padding: 36px;
-    background: var(--card-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 28px;
-    box-shadow: var(--shadow);
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(79,70,229,0.08);
 }
 
-/* Progress Area */
 .progress-area {
-    margin-bottom: 24px;
+    margin-bottom: 25px;
 }
 
 .progress-text {
     display: flex;
     justify-content: space-between;
     font-size: 13px;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 10px;
+    color: var(--text-gray);
+    margin-bottom: 8px;
 }
 
 .progress-bar {
     width: 100%;
     height: 8px;
-    background: #f1f5f9;
-    border-radius: 999px;
+    background: #e2e8f0;
+    border-radius: 10px;
     overflow: hidden;
 }
 
 .progress-fill {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #6366f1, #a855f7);
-    border-radius: 999px;
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(to right, #4f46e5, #9333ea);
+    transition: width 0.3s ease;
 }
 
-/* Round Area */
 .round-area {
-    text-align: center;
-    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 10px 0;
+}
+
+.round-badge-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .round-badge {
     display: inline-block;
-    padding: 6px 16px;
-    border-radius: 20px;
+    padding: 6px 14px;
+    border-radius: 30px;
     background: var(--primary-light);
-    color: var(--primary);
+    color: var(--primary-color);
     font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.3px;
+}
+
+.mode-toggle {
+    display: none;
+    font-size: 12px;
+    padding: 4px 10px;
+    background: #f1f5f9;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-gray);
+}
+.mode-toggle.active {
+    background: #e0e7ff;
+    color: var(--primary-color);
+    border-color: #c7d2fe;
 }
 
 .instruction {
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-muted);
+    font-size: 13px;
+    color: var(--text-gray);
+    margin-bottom: 15px;
 }
 
-/* Sentence Box */
 .sentence-box {
-    margin: 20px 0 28px 0;
-    padding: 36px 28px;
-    background: #f8fafc;
-    border: 1px solid var(--border-color);
+    margin: 15px 0 25px 0;
+    padding: 30px 25px;
+    background: #fafbff;
+    border: 2px solid #eef2ff;
     border-radius: 20px;
-    min-height: 170px;
+    min-height: 160px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+}
+
+.tts-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
     align-items: center;
-    text-align: center;
-    transition: all 0.3s ease;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    transition: 0.15s;
 }
-
-.sentence-box.fade-in {
-    animation: fadeIn 0.35s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
+.tts-btn:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-color);
 }
 
 #sentenceDisplay {
-    font-size: 24px;
-    line-height: 1.6;
+    font-size: 23px;
+    line-height: 1.7;
     font-weight: 700;
-    color: var(--text-main);
+    color: var(--primary-color);
     word-break: keep-all;
+    padding-right: 30px;
 }
 
 #koreanTranslate {
-    margin-top: 16px;
+    margin-top: 15px;
     font-size: 16px;
-    line-height: 1.5;
-    color: var(--text-muted);
-    font-weight: 500;
+    line-height: 1.6;
+    color: var(--text-gray);
     word-break: keep-all;
 }
 
 .hidden-word {
     display: inline-block;
-    margin: 0 4px;
-    padding: 2px 10px;
+    min-width: 50px;
+    margin: 0 3px;
+    padding: 0 8px;
     color: transparent;
-    background: #cbd5e1;
-    border-radius: 6px;
+    background: #c7d2fe;
+    border-radius: 5px;
     user-select: none;
-    transition: background 0.2s;
 }
 
-/* Round Dots */
-.round-dots {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 28px;
-}
-
-.round-dot {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: #f1f5f9;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
+.hint-word {
+    display: inline-block;
+    margin: 0 3px;
+    padding: 0 6px;
+    background: #e0e7ff;
+    border-radius: 5px;
+    border-bottom: 2px dashed var(--primary-color);
+    color: var(--primary-color);
     font-weight: 700;
-    border: 1px solid var(--border-color);
 }
 
-.round-dot.active {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-}
-
-.round-dot.done {
-    background: var(--secondary);
-    color: white;
-    border-color: var(--secondary);
-}
-
-/* Controls */
 .controls {
     display: flex;
+    justify-content: center;
     gap: 12px;
+    margin-top: 25px;
 }
 
 .main-btn {
-    flex: 1;
     border: none;
-    border-radius: 14px;
-    padding: 16px;
+    border-radius: 12px;
+    padding: 14px 22px;
     font-family: inherit;
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
+    transition: 0.15s;
 }
 
 .main-btn:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
 }
 
 .prev {
-    background: #f1f5f9;
-    color: var(--text-muted);
-}
-.prev:hover {
     background: #e2e8f0;
+    color: #475569;
 }
 
 .next {
-    background: var(--primary);
+    background: var(--primary-color);
     color: white;
-    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
-}
-.next:hover {
-    background: var(--primary-hover);
 }
 
 .complete {
-    background: var(--secondary);
+    background: var(--secondary-color);
     color: white;
-    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
     display: none;
 }
 
-/* Tip */
+.round-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 25px;
+}
+
+.round-dot {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.round-dot.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.round-dot.done {
+    background: var(--secondary-color);
+    color: white;
+}
+
 .tip {
-    margin-top: 24px;
-    padding: 16px 20px;
+    margin-top: 25px;
+    padding: 15px;
     background: #f8fafc;
-    border: 1px solid var(--border-color);
-    border-radius: 14px;
+    border-radius: 12px;
     font-size: 13px;
     line-height: 1.6;
-    color: var(--text-muted);
+    color: #64748b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.tip strong {
-    color: var(--text-main);
-}
-
-/* Footer */
 .footer {
     text-align: center;
-    margin: 24px 0;
-    font-size: 12px;
-    color: var(--text-muted);
-    font-weight: 500;
+    margin: 30px 0;
+    font-size: 11px;
+    color: #94a3b8;
 }
 
-/* Responsive */
-@media (max-width: 640px) {
-    .container {
-        margin: 16px;
-        padding: 24px 20px;
-        border-radius: 20px;
-    }
-    .text-logo {
-        left: 16px;
-        font-size: 18px;
-    }
-    #sentenceDisplay {
-        font-size: 20px;
-    }
-    #koreanTranslate {
-        font-size: 15px;
-    }
+@media (max-width: 600px) {
+    .container { margin: 15px; padding: 20px; border-radius: 20px; }
+    .text-logo { font-size: 17px; }
+    .title { display: none; }
+    #sentenceDisplay { font-size: 20px; }
+    #koreanTranslate { font-size: 14px; }
+    .main-btn { padding: 12px 16px; font-size: 14px; }
 }
 </style>
 </head>
@@ -326,10 +348,13 @@ body {
 <div class="header">
     <div class="text-logo">Habitus</div>
     <div class="title">Habitus Speaking</div>
+    <div class="header-right">
+        <button id="bookmarkFilterBtn" class="icon-btn" onclick="toggleBookmarkFilter()">⭐ 북마크 모아보기</button>
+        <button id="autoPlayBtn" class="icon-btn" onclick="toggleAutoPlay()">⏱️ 오토플레이</button>
+    </div>
 </div>
 
 <div class="container">
-    <!-- Progress Bar -->
     <div class="progress-area">
         <div class="progress-text">
             <span id="progressText">Sentence 1 / 46</span>
@@ -340,44 +365,41 @@ body {
         </div>
     </div>
 
-    <!-- Round Badge & Instruction -->
     <div class="round-area">
-        <div id="roundBadge" class="round-badge">1회차</div>
-        <div id="instruction" class="instruction">영어 문장과 뜻을 보며 소리 내어 읽어 보세요.</div>
+        <div class="round-badge-group">
+            <div id="roundBadge" class="round-badge">1회차</div>
+            <button id="hintModeBtn" class="mode-toggle" onclick="toggleHintMode()">첫글자 힌트 모드</button>
+        </div>
+        <button id="bookmarkBtn" class="icon-btn" onclick="toggleCurrentBookmark()">☆ 북마크</button>
+    </div>
+    
+    <div id="instruction" class="instruction">
+        영어 문장과 뜻을 보며 소리 내어 읽어 보세요.
     </div>
 
-    <!-- Sentence Box -->
-    <div class="sentence-box" id="sentenceBox">
+    <div class="sentence-box">
+        <button class="tts-btn" onclick="playTTS()" title="원어민 발음 듣기">🔊</button>
         <div id="sentenceDisplay">Loading...</div>
         <div id="koreanTranslate">...</div>
     </div>
 
-    <!-- Round Dots Indicator -->
-    <div class="round-dots">
+    <div class="round-buttons">
         <div id="round1" class="round-dot active">1</div>
         <div id="round2" class="round-dot">2</div>
         <div id="round3" class="round-dot">3</div>
     </div>
 
-    <!-- Controls -->
     <div class="controls">
-        <button id="prevBtn" class="main-btn prev" onclick="previousSentence()">
-            ← 이전
-        </button>
-        <button id="nextBtn" class="main-btn next" onclick="nextStep()">
-            다음 회차 →
-        </button>
-        <button id="completeBtn" class="main-btn complete" onclick="nextSentence()">
-            다음 문장 →
-        </button>
+        <button id="prevBtn" class="main-btn prev" onclick="previousSentence()">← 이전 문장</button>
+        <button id="nextBtn" class="main-btn next" onclick="nextStep()">다음 회차 →</button>
+        <button id="completeBtn" class="main-btn complete" onclick="nextSentence()">다음 문장 →</button>
     </div>
 
-    <!-- Study Tip -->
     <div class="tip">
-        <strong>Speaking 3-Step Guide</strong><br>
-        ① 문장과 뜻을 보며 정확하게 읽기 &nbsp;|&nbsp; 
-        ② 영어만 보고 읽기 &nbsp;|&nbsp; 
-        ③ 핵심 단어를 기억하며 읽기
+        <div>
+            <strong>Speaking 3-Step</strong><br>
+            ① 뜻 보며 읽기 → ② 영어만 보기 → ③ 빈칸/힌트 연상하며 읽기
+        </div>
     </div>
 </div>
 
@@ -386,9 +408,6 @@ body {
 </div>
 
 <script>
-/* =========================================================
-   SPEAKING SENTENCES
-   ========================================================= */
 const sentences = [
 { en: "What do you want to do in the future?", ko: "너는 미래에 무엇을 하고 싶니?" },
 { en: "Parents and teachers ask students this question all the time.", ko: "부모님과 선생님들은 항상 학생들에게 이 질문을 한다." },
@@ -414,7 +433,7 @@ const sentences = [
 { en: "At such a young age, you probably don't have certain skills.", ko: "그렇게 어린 나이에는 아마도 아직 갖추지 못한 기술들이 있을 것이다." },
 { en: "Your technical knowledge might be at a beginner level, or your physical conditioning might need work.", ko: "기술적 지식이 초보 수준일 수도 있고 신체적인 단련이 더 필요할 수도 있다." },
 { en: "Noticing these gaps will help you in the next steps of your map.", ko: "이러한 공백을 알아차리는 것은 지도의 다음 단계를 진행하는 데 도움이 될 것이다." },
-{ en: "By comparing your strengths and weaknesses, or the dots and the gaps, your map should show you what you possess and what you need to work on.", ko: "자신의 강점과 약점, 즉 점과 공백을 비교하면 지도는 자신이 무엇을 가지고 있고 무엇을 노력해야 하는지를 보여 줄 것이다." },
+{ en: "By comparing your strengths and weaknesses, or the dots and the gaps, your map should show you what you possess and what you need to work on.", ko: "자신의 강점과 약점, 즉 점과 공백을 비교하면 자신의 지도는 자신이 무엇을 가지고 있고 무엇을 노력해야 하는지를 보여 줄 것이다." },
 { en: "Now, think of a long-term goal, like becoming a musician.", ko: "이제 음악가가 되는 것과 같은 장기적인 목표를 생각해 보자." },
 { en: "Your goal doesn't have to be realistic.", ko: "당신의 목표가 반드시 현실적일 필요는 없다." },
 { en: "Remember that the purpose of having the goal clearly written is to map out a way to get there.", ko: "목표를 명확하게 적는 목적은 그 목표에 도달할 방법을 그려 보는 것임을 기억하자." },
@@ -440,27 +459,39 @@ const sentences = [
 
 let currentIndex = 0;
 let currentRound = 1;
+let isHintMode = false;
+let bookmarks = JSON.parse(localStorage.getItem('habitus_bookmarks') || '[]');
+let isBookmarkFilterActive = false;
+let activeTargetList = sentences;
+let autoPlayTimer = null;
+let isAutoPlayActive = false;
 
 function loadSentence() {
-    const sentence = sentences[currentIndex];
+    const list = isBookmarkFilterActive ? activeTargetList : sentences;
+    if (list.length === 0) {
+        showEmptyBookmark();
+        return;
+    }
+    if (currentIndex >= list.length) currentIndex = 0;
+    
+    const sentence = list[currentIndex];
     document.getElementById("koreanTranslate").innerText = sentence.ko;
     updateRound();
     updateProgress();
-    triggerAnimation();
-}
-
-function triggerAnimation() {
-    const box = document.getElementById("sentenceBox");
-    box.classList.remove("fade-in");
-    void box.offsetWidth; // trigger reflow
-    box.classList.add("fade-in");
+    updateBookmarkButtonState();
 }
 
 function updateRound() {
-    const sentence = sentences[currentIndex];
+    const list = isBookmarkFilterActive ? activeTargetList : sentences;
+    if (list.length === 0) return;
+    const sentence = list[currentIndex];
+
     const display = document.getElementById("sentenceDisplay");
     const badge = document.getElementById("roundBadge");
     const instruction = document.getElementById("instruction");
+    const hintBtn = document.getElementById("hintModeBtn");
+
+    hintBtn.style.display = (currentRound === 3) ? "block" : "none";
 
     if (currentRound === 1) {
         display.innerText = sentence.en;
@@ -471,29 +502,26 @@ function updateRound() {
         badge.innerText = "2회차";
         instruction.innerText = "이번에는 영어 문장만 보고 소리 내어 읽어 보세요.";
     } else {
-        display.innerHTML = hideWords(sentence.en);
+        display.innerHTML = isHintMode ? generateHintWords(sentence.en) : hideWords(sentence.en);
         badge.innerText = "3회차";
-        instruction.innerText = "가려진 단어를 기억하며 문장 전체를 소리 내어 읽어 보세요.";
+        instruction.innerText = isHintMode ? "첫 글자 힌트를 보며 문장을 완성해 읽어 보세요." : "가려진 단어를 기억하며 문장 전체를 소리 내어 읽어 보세요.";
     }
 
     updateRoundDots();
     updateButtons();
 }
 
+// 3회차 블라인드 로직
 function hideWords(sentence) {
     const words = sentence.split(" ");
     const candidates = [];
-
     words.forEach((word, index) => {
         const cleanWord = word.replace(/[^a-zA-Z]/g, "");
-        if (cleanWord.length >= 4) {
-            candidates.push(index);
-        }
+        if (cleanWord.length >= 4) candidates.push(index);
     });
 
     const hideCount = Math.max(1, Math.floor(candidates.length * 0.35));
     const hideIndexes = [];
-
     for (let i = 0; i < hideCount; i++) {
         const position = Math.floor(i * candidates.length / hideCount);
         hideIndexes.push(candidates[position]);
@@ -503,16 +531,170 @@ function hideWords(sentence) {
         if (hideIndexes.includes(index)) {
             const cleanWord = word.replace(/[^a-zA-Z]/g, "");
             const punctuation = word.replace(/[a-zA-Z]/g, "");
-            return `<span class="hidden-word">${cleanWord}</span>${punctuation}`;
+            return `<span class="hidden-word" style="min-width:${Math.max(45, cleanWord.length * 10)}px">${cleanWord}</span>${punctuation}`;
         }
         return word;
     }).join(" ");
 }
 
+// 첫 글자 힌트 모드 로직
+function generateHintWords(sentence) {
+    const words = sentence.split(" ");
+    const candidates = [];
+    words.forEach((word, index) => {
+        const cleanWord = word.replace(/[^a-zA-Z]/g, "");
+        if (cleanWord.length >= 4) candidates.push(index);
+    });
+
+    const hideCount = Math.max(1, Math.floor(candidates.length * 0.35));
+    const hideIndexes = [];
+    for (let i = 0; i < hideCount; i++) {
+        const position = Math.floor(i * candidates.length / hideCount);
+        hideIndexes.push(candidates[position]);
+    }
+
+    return words.map((word, index) => {
+        if (hideIndexes.includes(index)) {
+            const cleanWord = word.replace(/[^a-zA-Z]/g, "");
+            const punctuation = word.replace(/[a-zA-Z]/g, "");
+            const hint = cleanWord[0] + "_".repeat(cleanWord.length - 1);
+            return `<span class="hint-word">${hint}</span>${punctuation}`;
+        }
+        return word;
+    }).join(" ");
+}
+
+function toggleHintMode() {
+    isHintMode = !isHintMode;
+    const btn = document.getElementById("hintModeBtn");
+    if (isHintMode) {
+        btn.classList.add("active");
+        btn.innerText = "전체 가리기 모드";
+    } else {
+        btn.classList.remove("active");
+        btn.innerText = "첫글자 힌트 모드";
+    }
+    updateRound();
+}
+
+// TTS 원어민 발음 재생
+function playTTS() {
+    const list = isBookmarkFilterActive ? activeTargetList : sentences;
+    if (list.length === 0) return;
+    const text = list[currentIndex].en;
+    
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.9;
+        window.speechSynthesis.speak(utterance);
+    }
+}
+
+// 북마크 기능
+function toggleCurrentBookmark() {
+    const list = isBookmarkFilterActive ? activeTargetList : sentences;
+    if (list.length === 0) return;
+    const currentSentence = list[currentIndex];
+    
+    const index = bookmarks.findIndex(s => s.en === currentSentence.en);
+    if (index > -1) {
+        bookmarks.splice(index, 1);
+    } else {
+        bookmarks.push(currentSentence);
+    }
+    localStorage.setItem('habitus_bookmarks', JSON.stringify(bookmarks));
+    updateBookmarkButtonState();
+}
+
+function updateBookmarkButtonState() {
+    const list = isBookmarkFilterActive ? activeTargetList : sentences;
+    const btn = document.getElementById("bookmarkBtn");
+    if (list.length === 0) return;
+    const currentSentence = list[currentIndex];
+    
+    const isBookmarked = bookmarks.some(s => s.en === currentSentence.en);
+    if (isBookmarked) {
+        btn.innerText = "★ 북마크 해제";
+        btn.classList.add("bookmarked");
+    } else {
+        btn.innerText = "☆ 북마크";
+        btn.classList.remove("bookmarked");
+    }
+}
+
+function toggleBookmarkFilter() {
+    isBookmarkFilterActive = !isBookmarkFilterActive;
+    const filterBtn = document.getElementById("bookmarkFilterBtn");
+    
+    if (isBookmarkFilterActive) {
+        filterBtn.classList.add("active");
+        activeTargetList = bookmarks;
+        currentIndex = 0;
+        currentRound = 1;
+        loadSentence();
+    } else {
+        filterBtn.classList.remove("active");
+        activeTargetList = sentences;
+        currentIndex = 0;
+        currentRound = 1;
+        loadSentence();
+    }
+}
+
+function showEmptyBookmark() {
+    document.querySelector(".sentence-box").innerHTML = `
+        <div style="font-size:40px; margin-bottom:10px;">⭐</div>
+        <div style="font-size:20px; font-weight:700; color:var(--primary-color);">저장된 북마크가 없습니다</div>
+        <div style="margin-top:10px; font-size:14px; color:var(--text-gray);">어려운 문장에 북마크를 추가해 집중 학습해보세요!</div>
+    `;
+    document.getElementById("koreanTranslate").innerText = "";
+    document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("completeBtn").style.display = "none";
+}
+
+// 오토 플레이 타이머 기능
+function toggleAutoPlay() {
+    isAutoPlayActive = !isAutoPlayActive;
+    const autoBtn = document.getElementById("autoPlayBtn");
+    
+    if (isAutoPlayActive) {
+        autoBtn.classList.add("active");
+        autoBtn.innerText = "⏸️ 오토플레이 중";
+        runAutoPlayStep();
+    } else {
+        autoBtn.classList.remove("active");
+        autoBtn.innerText = "⏱️ 오토플레이";
+        clearTimeout(autoPlayTimer);
+    }
+}
+
+function runAutoPlayStep() {
+    if (!isAutoPlayActive) return;
+    playTTS();
+    
+    autoPlayTimer = setTimeout(() => {
+        if (!isAutoPlayActive) return;
+        if (currentRound < 3) {
+            nextStep();
+            runAutoPlayStep();
+        } else {
+            if (currentIndex < (isBookmarkFilterActive ? activeTargetList.length : sentences.length) - 1) {
+                nextSentence();
+                runAutoPlayStep();
+            } else {
+                toggleAutoPlay(); // 종료
+            }
+        }
+    }, 6000); // 6초 간격
+}
+
+// 회차 및 문장 이동
 function updateRoundDots() {
     for (let i = 1; i <= 3; i++) {
         const dot = document.getElementById("round" + i);
-        dot.className = "round-dot";
+        dot.classList.remove("active", "done");
         if (i < currentRound) dot.classList.add("done");
         if (i === currentRound) dot.classList.add("active");
     }
@@ -521,30 +703,28 @@ function updateRoundDots() {
 function updateButtons() {
     const nextBtn = document.getElementById("nextBtn");
     const completeBtn = document.getElementById("completeBtn");
-    const prevBtn = document.getElementById("prevBtn");
 
     if (currentRound < 3) {
-        nextBtn.style.display = "flex";
+        nextBtn.style.display = "block";
         completeBtn.style.display = "none";
         nextBtn.innerText = "다음 회차 →";
     } else {
         nextBtn.style.display = "none";
-        completeBtn.style.display = "flex";
+        completeBtn.style.display = "block";
         completeBtn.innerText = "다음 문장 →";
     }
-    prevBtn.innerText = (currentIndex === 0 && currentRound === 1) ? "← 이전" : "← 이전";
 }
 
 function nextStep() {
     if (currentRound < 3) {
         currentRound++;
         updateRound();
-        triggerAnimation();
     }
 }
 
 function nextSentence() {
-    if (currentIndex < sentences.length - 1) {
+    const list = isBookmarkFilterActive ? activeTargetList : sentences;
+    if (currentIndex < list.length - 1) {
         currentIndex++;
         currentRound = 1;
         loadSentence();
@@ -557,52 +737,43 @@ function previousSentence() {
     if (currentRound > 1) {
         currentRound--;
         updateRound();
-        triggerAnimation();
         return;
     }
-
     if (currentIndex > 0) {
         currentIndex--;
         currentRound = 3;
         loadSentence();
-        triggerAnimation();
     }
 }
 
 function updateProgress() {
-    const total = sentences.length;
+    const list = isBookmarkFilterActive ? activeTargetList : sentences;
+    const total = list.length;
     const current = currentIndex + 1;
 
-    document.getElementById("progressText").innerText = `Sentence ${current} / ${total}`;
-    const percent = Math.round((currentIndex / total) * 100);
+    document.getElementById("progressText").innerText = isBookmarkFilterActive ? `Bookmark ${current} / ${total}` : `Sentence ${current} / ${total}`;
+    const percent = total > 0 ? Math.round((currentIndex / total) * 100) : 100;
     document.getElementById("percentText").innerText = `${percent}%`;
     document.getElementById("progressFill").style.width = `${percent}%`;
 }
 
 function showCompletion() {
-    document.getElementById("sentenceBox").innerHTML = `
-        <div style="font-size:48px; margin-bottom:12px;">🎉</div>
-        <div style="font-size:26px; font-weight:800; color:var(--primary);">Great Job!</div>
-        <div style="margin-top:12px; font-size:15px; color:var(--text-muted); line-height:1.6;">
-            모든 문장을 3회씩 완벽하게<br>소리 내어 읽었습니다.
-        </div>
+    if (isAutoPlayActive) toggleAutoPlay();
+    document.querySelector(".sentence-box").innerHTML = `
+        <div style="font-size:50px; margin-bottom:15px;">🎉</div>
+        <div style="font-size:28px; font-weight:800; color:#4f46e5;">Great Job!</div>
+        <div style="margin-top:15px; font-size:16px; color:#64748b; line-height:1.7;">모든 학습을 완벽하게 완료했습니다!</div>
     `;
-
-    document.getElementById("koreanTranslate").innerText = "";
+    document.getElementById("koreanTranslate").innerText = "오늘의 Speaking Practice를 완료했습니다!";
     document.getElementById("nextBtn").style.display = "none";
     document.getElementById("completeBtn").style.display = "none";
-    document.getElementById("prevBtn").innerText = "← 처음부터 다시";
-    document.getElementById("prevBtn").onclick = () => {
-        currentIndex = 0;
-        currentRound = 1;
-        location.reload();
-    };
-
+    document.getElementById("prevBtn").innerText = "← 처음으로";
+    document.getElementById("prevBtn").onclick = () => { location.reload(); };
     document.getElementById("progressFill").style.width = "100%";
     document.getElementById("percentText").innerText = "100%";
 }
 
-// Initial Load
+// 초기 실행
 loadSentence();
 </script>
 
