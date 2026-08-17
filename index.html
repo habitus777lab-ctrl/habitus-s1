@@ -3,49 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Habitus Speaking</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 :root {
-  --primary-color: #4f46e5;
-  --secondary-color: #10b981;
-  --error-color: #ef4444;
-  --bg-gradient: linear-gradient(135deg, #f5f7ff 0%, #e4eaff 100%);
+  --primary: #4f46e5;
+  --primary-light: #eef2ff;
+  --secondary: #10b981;
+  --text: #1e293b;
+  --gray: #64748b;
+  --light-gray: #e2e8f0;
+  --bg: linear-gradient(135deg, #f5f7ff 0%, #e4eaff 100%);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Poppins', 'Noto Sans KR', sans-serif;
-  background: var(--bg-gradient);
   margin: 0;
   padding: 0;
-  text-align: center;
-  color: #1e293b;
+  font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
-/* 헤더 */
+/* ================= HEADER ================= */
+
 .header {
+  height: 70px;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 70px;
-  background: white;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-/* 로고 */
 .text-logo {
   position: absolute;
   left: 20px;
-  font-weight: 900;
   font-size: 22px;
-  background: linear-gradient(135deg, #ff6a97 0%, #9333ea 100%);
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff6a97, #9333ea);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  letter-spacing: -1px;
-  text-transform: uppercase;
 }
 
 .title {
@@ -56,237 +62,386 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+/* ================= CONTAINER ================= */
+
 .container {
-  max-width: 700px;
-  margin: 30px auto;
+  max-width: 760px;
+  margin: 35px auto;
   background: white;
-  padding: 30px;
-  border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(79,70,229,0.08);
+  padding: 35px;
+  border-radius: 28px;
+  box-shadow: 0 15px 40px rgba(79,70,229,0.10);
 }
 
-#statusText {
+/* ================= PROGRESS ================= */
+
+.progress-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.lesson {
   font-size: 14px;
-  color: #94a3b8;
-  margin-bottom: 10px;
+  color: var(--gray);
 }
 
-#timerDisplay {
-  font-size: 52px;
-  font-weight: 800;
-  color: #1e293b;
-  font-variant-numeric: tabular-nums;
-  margin-bottom: 15px;
-  letter-spacing: -1px;
+.sentence-number {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
 }
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #eef2f7;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 35px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #4f46e5, #9333ea);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+/* ================= INSTRUCTION ================= */
+
+.instruction {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 12px;
+}
+
+.stage {
+  display: inline-block;
+  padding: 7px 15px;
+  border-radius: 20px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* ================= SENTENCE ================= */
 
 #sentenceDisplay {
-  font-size: 24px;
+  font-size: 27px;
+  line-height: 1.75;
   font-weight: 700;
-  color: var(--primary-color);
-  margin: 20px 0;
-  line-height: 1.6;
+  color: var(--primary);
+  text-align: center;
+  margin: 10px 0 22px;
   word-break: keep-all;
 }
 
-#koreanTranslate {
-  font-size: 17px;
-  color: #64748b;
-  margin-bottom: 30px;
-  line-height: 1.6;
+.hidden-word {
+  display: inline-block;
+  min-width: 65px;
+  height: 1.1em;
+  background: #c7d2fe;
+  border-radius: 5px;
+  vertical-align: middle;
 }
 
-.controls {
+/* ================= KOREAN ================= */
+
+#koreanTranslate {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--gray);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ================= THREE DOTS ================= */
+
+.read-progress {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
+  gap: 12px;
   margin: 25px 0;
 }
 
-.btn-record {
-  width: 70px;
-  height: 70px;
+.read-dot {
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: white;
-  transition: all 0.2s;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background: #e2e8f0;
+  transition: all 0.3s;
 }
 
-#recordBtn {
-  background: var(--error-color);
+.read-dot.active {
+  background: var(--primary);
+  transform: scale(1.15);
 }
 
-#stopBtn {
-  background: #334155;
-  display: none;
+.read-dot.done {
+  background: var(--secondary);
 }
 
-#playBtn {
-  background: var(--secondary-color);
-  display: none;
-  width: 55px;
-  height: 55px;
-  font-size: 20px;
+/* ================= READ MESSAGE ================= */
+
+#readMessage {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 20px 0;
 }
+
+/* ================= BUTTON ================= */
 
 .main-btn {
-  font-family: 'Poppins', 'Noto Sans KR', sans-serif;
-  font-weight: 700;
-  border-radius: 12px;
   border: none;
-  cursor: pointer;
-  color: white;
-  padding: 14px 35px;
+  border-radius: 14px;
+  padding: 16px 40px;
+  font-family: inherit;
   font-size: 16px;
-  transition: transform 0.1s;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.main-btn:hover {
+  transform: translateY(-2px);
 }
 
 .main-btn:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
-.next {
-  background: var(--primary-color);
-  margin-top: 10px;
+.read-btn {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  box-shadow: 0 8px 20px rgba(79,70,229,0.25);
 }
 
-#recordList {
-  margin-top: 30px;
-  padding: 0;
-  list-style: none;
-  border-top: 1.5px solid #f1f5f9;
-  text-align: left;
+.next-btn {
+  background: var(--secondary);
+  display: none;
+  box-shadow: 0 8px 20px rgba(16,185,129,0.20);
 }
 
-.record-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 14px 15px;
-  border-bottom: 1px solid #f1f5f9;
-  font-size: 14px;
-  color: #475569;
-}
+/* ================= COMPLETE ================= */
 
-.recording-blink {
-  animation: blink 1s infinite;
-  color: var(--error-color);
+.complete-message {
+  display: none;
+  padding: 18px;
+  background: #ecfdf5;
+  color: #047857;
+  border-radius: 15px;
+  margin: 20px 0;
   font-weight: 700;
 }
 
-@keyframes blink {
-  50% {
-    opacity: 0.4;
-  }
-}
+/* ================= FOOTER ================= */
 
 .footer {
-  margin-top: 30px;
-  font-size: 11px;
+  text-align: center;
   color: #94a3b8;
-  padding-bottom: 20px;
+  font-size: 11px;
+  padding-bottom: 25px;
 }
 
+/* ================= MOBILE ================= */
+
 @media (max-width: 600px) {
+
+  .header {
+    height: 62px;
+  }
+
   .text-logo {
     font-size: 17px;
-    left: 10px;
+    left: 12px;
   }
 
   .title {
     font-size: 16px;
   }
 
-  #timerDisplay {
-    font-size: 40px;
+  .container {
+    margin: 20px 12px;
+    padding: 25px 20px;
+    border-radius: 22px;
   }
 
   #sentenceDisplay {
-    font-size: 20px;
+    font-size: 21px;
+    line-height: 1.7;
   }
 
   #koreanTranslate {
-    font-size: 15px;
+    font-size: 14px;
+  }
+
+  .main-btn {
+    width: 100%;
   }
 }
+
 </style>
 </head>
 
+
 <body>
 
+
+<!-- ================= HEADER ================= -->
+
 <div class="header">
-  <div class="text-logo">Habitus</div>
-  <div class="title">Habitus Speaking</div>
+
+  <div class="text-logo">
+    Habitus
+  </div>
+
+  <div class="title">
+    Habitus Speaking
+  </div>
+
 </div>
+
+
+<!-- ================= MAIN ================= -->
 
 <div class="container">
 
-  <div id="statusText">Ready to Practice</div>
 
-  <div id="timerDisplay">00:00.00</div>
+  <!-- Progress -->
 
-  <div id="sentenceDisplay">Loading...</div>
+  <div class="progress-top">
 
-  <div id="koreanTranslate">...</div>
+    <div class="lesson">
+      Lesson 1
+    </div>
 
-  <div class="controls">
-
-    <button
-      id="playBtn"
-      class="btn-record"
-      onclick="playRecording()">
-      ▶
-    </button>
-
-    <button
-      id="recordBtn"
-      class="btn-record"
-      onclick="startSession()">
-      ●
-    </button>
-
-    <button
-      id="stopBtn"
-      class="btn-record"
-      onclick="stopSession()">
-      ■
-    </button>
+    <div class="sentence-number" id="sentenceNumber">
+      Sentence 1
+    </div>
 
   </div>
 
+
+  <div class="progress-bar">
+
+    <div
+      class="progress-fill"
+      id="progressFill">
+    </div>
+
+  </div>
+
+
+  <!-- Instruction -->
+
+  <div class="instruction">
+    소리 내어 문장을 읽어 주세요.
+  </div>
+
+
+  <div
+    class="stage"
+    id="stage">
+    LOOK & READ
+  </div>
+
+
+  <!-- Sentence -->
+
+  <div id="sentenceDisplay">
+    Loading...
+  </div>
+
+
+  <!-- Korean -->
+
+  <div id="koreanTranslate">
+    ...
+  </div>
+
+
+  <!-- Reading Progress -->
+
+  <div class="read-progress">
+
+    <div
+      class="read-dot active"
+      id="dot1">
+    </div>
+
+    <div
+      class="read-dot"
+      id="dot2">
+    </div>
+
+    <div
+      class="read-dot"
+      id="dot3">
+    </div>
+
+  </div>
+
+
+  <!-- Message -->
+
+  <div id="readMessage">
+    1번째 읽기
+  </div>
+
+
+  <!-- Complete -->
+
+  <div
+    class="complete-message"
+    id="completeMessage">
+
+    🎉 Great! 이 문장을 3번 읽었습니다.
+
+  </div>
+
+
+  <!-- Buttons -->
+
   <button
-    class="main-btn next"
-    onclick="nextSentence()">
-    Next Sentence
+    class="main-btn read-btn"
+    id="readBtn"
+    onclick="completeReading()">
+
+    ✓ 읽기 완료
+
   </button>
 
-  <ul id="recordList"></ul>
+
+  <button
+    class="main-btn next-btn"
+    id="nextBtn"
+    onclick="nextSentence()">
+
+    Next Sentence →
+
+  </button>
+
 
 </div>
+
 
 <div class="footer">
   ⓒViolet Youn Habitus. All Rights reserved.
 </div>
 
 
-<script>
 
-let mediaRecorder;
-let audioChunks = [];
-let audio;
-let startTime;
-let timerInterval;
-let elapsedTime = 0;
+<script>
 
 
 /* =========================================================
-   Lesson 1. Start Connecting Your Dots Today
+   SENTENCES
    ========================================================= */
 
 const sentences = [
@@ -524,239 +679,206 @@ const sentences = [
 ];
 
 
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
 let currentIndex = 0;
+let readingCount = 0;
 
 
 /* =========================================================
-   문장 불러오기
+   LOAD SENTENCE
    ========================================================= */
 
 function loadSentence() {
 
+  readingCount = 0;
+
+  const sentence = sentences[currentIndex];
+
+  document.getElementById("sentenceNumber").innerText =
+    `Sentence ${currentIndex + 1}`;
+
+  document.getElementById("progressFill").style.width =
+    ((currentIndex + 1) / sentences.length * 100) + "%";
+
   document.getElementById("sentenceDisplay").innerText =
-    sentences[currentIndex].en;
+    sentence.en;
 
   document.getElementById("koreanTranslate").innerText =
-    sentences[currentIndex].ko;
+    sentence.ko;
 
-  resetUI();
-}
+  document.getElementById("stage").innerText =
+    "LOOK & READ";
 
+  document.getElementById("readMessage").innerText =
+    "1번째 읽기";
 
-/* =========================================================
-   녹음 시작
-   ========================================================= */
+  document.getElementById("readBtn").style.display =
+    "inline-block";
 
-async function startSession() {
-
-  audioChunks = [];
-
-  try {
-
-    const stream =
-      await navigator.mediaDevices.getUserMedia({ audio: true });
-
-    mediaRecorder =
-      new MediaRecorder(stream);
-
-    mediaRecorder.ondataavailable = event => {
-      audioChunks.push(event.data);
-    };
-
-    mediaRecorder.onstop = () => {
-
-      const audioBlob =
-        new Blob(audioChunks, { type: 'audio/wav' });
-
-      audio =
-        new Audio(URL.createObjectURL(audioBlob));
-
-      document.getElementById("playBtn").style.display = "flex";
-
-      addRecordToList(elapsedTime);
-    };
-
-
-    mediaRecorder.start();
-
-    startTime = Date.now();
-
-    timerInterval =
-      setInterval(updateTimer, 10);
-
-
-    document.getElementById("recordBtn").style.display = "none";
-
-    document.getElementById("stopBtn").style.display = "flex";
-
-    document.getElementById("playBtn").style.display = "none";
-
-    document.getElementById("statusText").innerText =
-      "Recording...";
-
-    document.getElementById("statusText")
-      .classList.add("recording-blink");
-
-  }
-
-  catch (err) {
-
-    alert("마이크 사용을 허용해 주세요!");
-
-  }
-}
-
-
-/* =========================================================
-   녹음 종료
-   ========================================================= */
-
-function stopSession() {
-
-  clearInterval(timerInterval);
-
-  if (
-    mediaRecorder &&
-    mediaRecorder.state !== "inactive"
-  ) {
-
-    mediaRecorder.stop();
-
-  }
-
-  document.getElementById("stopBtn").style.display = "none";
-
-  document.getElementById("recordBtn").style.display = "flex";
-
-  document.getElementById("recordBtn").innerText = "↺";
-
-  document.getElementById("statusText").innerText =
-    "Recorded";
-
-  document.getElementById("statusText")
-    .classList.remove("recording-blink");
-}
-
-
-/* =========================================================
-   타이머
-   ========================================================= */
-
-function updateTimer() {
-
-  elapsedTime =
-    Date.now() - startTime;
-
-  document.getElementById("timerDisplay").innerText =
-    formatTime(elapsedTime);
-}
-
-
-function formatTime(ms) {
-
-  let date = new Date(ms);
-
-  let min =
-    String(date.getUTCMinutes()).padStart(2, '0');
-
-  let sec =
-    String(date.getUTCSeconds()).padStart(2, '0');
-
-  let msec =
-    String(
-      Math.floor(date.getUTCMilliseconds() / 10)
-    ).padStart(2, '0');
-
-  return `${min}:${sec}.${msec}`;
-}
-
-
-/* =========================================================
-   녹음 재생
-   ========================================================= */
-
-function playRecording() {
-
-  if (audio) {
-
-    audio.currentTime = 0;
-
-    audio.play();
-
-  }
-}
-
-
-/* =========================================================
-   녹음 기록
-   ========================================================= */
-
-function addRecordToList(time) {
-
-  const list =
-    document.getElementById("recordList");
-
-  const li =
-    document.createElement("li");
-
-  li.className = "record-item";
-
-  li.innerHTML =
-    `<span>Sentence ${currentIndex + 1}</span>
-     <span>${formatTime(time)}</span>`;
-
-  list.prepend(li);
-}
-
-
-/* =========================================================
-   UI 초기화
-   ========================================================= */
-
-function resetUI() {
-
-  clearInterval(timerInterval);
-
-  elapsedTime = 0;
-
-  document.getElementById("timerDisplay").innerText =
-    "00:00.00";
-
-  document.getElementById("recordBtn").style.display =
-    "flex";
-
-  document.getElementById("recordBtn").innerText =
-    "●";
-
-  document.getElementById("stopBtn").style.display =
+  document.getElementById("nextBtn").style.display =
     "none";
 
-  document.getElementById("playBtn").style.display =
+  document.getElementById("completeMessage").style.display =
     "none";
 
-  document.getElementById("statusText").innerText =
-    "Ready to Practice";
+  updateDots();
 
-  document.getElementById("statusText")
-    .classList.remove("recording-blink");
 }
 
 
 /* =========================================================
-   다음 문장
+   READING COMPLETE
+   ========================================================= */
+
+function completeReading() {
+
+  readingCount++;
+
+  updateDots();
+
+
+  /* 1회차 */
+
+  if (readingCount === 1) {
+
+    document.getElementById("stage").innerText =
+      "READ AGAIN";
+
+    document.getElementById("readMessage").innerText =
+      "좋아요! 한 번 더 읽어 보세요.";
+
+  }
+
+
+  /* 2회차 */
+
+  else if (readingCount === 2) {
+
+    document.getElementById("stage").innerText =
+      "REMEMBER & READ";
+
+    document.getElementById("readMessage").innerText =
+      "좋아요! 마지막으로 한 번 더 읽어 보세요.";
+
+  }
+
+
+  /* 3회차 */
+
+  else if (readingCount === 3) {
+
+    document.getElementById("stage").innerText =
+      "FINAL READ";
+
+    document.getElementById("readMessage").innerText =
+      "Excellent! 3번 읽기를 완료했습니다.";
+
+    document.getElementById("completeMessage").style.display =
+      "block";
+
+    document.getElementById("readBtn").style.display =
+      "none";
+
+    document.getElementById("nextBtn").style.display =
+      "inline-block";
+
+  }
+
+}
+
+
+/* =========================================================
+   DOTS
+   ========================================================= */
+
+function updateDots() {
+
+  for (let i = 1; i <= 3; i++) {
+
+    const dot =
+      document.getElementById("dot" + i);
+
+    dot.classList.remove("active");
+    dot.classList.remove("done");
+
+    if (i < readingCount + 1) {
+
+      dot.classList.add("done");
+
+    }
+
+    else if (i === readingCount + 1 && readingCount < 3) {
+
+      dot.classList.add("active");
+
+    }
+
+  }
+
+}
+
+
+/* =========================================================
+   NEXT SENTENCE
    ========================================================= */
 
 function nextSentence() {
 
-  currentIndex =
-    (currentIndex + 1) % sentences.length;
+  if (currentIndex < sentences.length - 1) {
 
-  loadSentence();
+    currentIndex++;
+
+    loadSentence();
+
+  }
+
+  else {
+
+    showComplete();
+
+  }
+
 }
 
 
 /* =========================================================
-   시작
+   ALL COMPLETE
+   ========================================================= */
+
+function showComplete() {
+
+  document.getElementById("sentenceDisplay").innerHTML =
+    "🎉 Lesson Complete!";
+
+  document.getElementById("koreanTranslate").innerText =
+    "모든 문장을 3번씩 읽었습니다.";
+
+  document.getElementById("stage").innerText =
+    "MISSION COMPLETE";
+
+  document.getElementById("readMessage").innerText =
+    "정말 잘했습니다!";
+
+  document.getElementById("readBtn").style.display =
+    "none";
+
+  document.getElementById("nextBtn").style.display =
+    "none";
+
+  document.getElementById("completeMessage").style.display =
+    "block";
+
+  document.getElementById("completeMessage").innerText =
+    "🏆 Lesson 1 완료! 모든 문장을 3번씩 읽었습니다.";
+
+}
+
+
+/* =========================================================
+   START
    ========================================================= */
 
 loadSentence();
