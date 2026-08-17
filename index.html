@@ -11,874 +11,1120 @@
 <style>
 
 :root {
-  --primary: #4f46e5;
-  --primary-light: #eef2ff;
-  --secondary: #10b981;
-  --text: #1e293b;
-  --gray: #64748b;
-  --light-gray: #e2e8f0;
-  --bg: linear-gradient(135deg, #f5f7ff 0%, #e4eaff 100%);
+    --primary-color: #4f46e5;
+    --primary-light: #eef2ff;
+    --secondary-color: #10b981;
+    --text-dark: #1e293b;
+    --text-gray: #64748b;
+    --border: #e2e8f0;
+    --bg: #f5f7ff;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', 'Noto Sans KR', sans-serif;
-  background: var(--bg);
-  color: var(--text);
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+    background: linear-gradient(135deg, #f5f7ff 0%, #e4eaff 100%);
+    color: var(--text-dark);
 }
 
-/* ================= HEADER ================= */
-
 .header {
-  height: 70px;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    height: 70px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .text-logo {
-  position: absolute;
-  left: 20px;
-  font-size: 22px;
-  font-weight: 800;
-  background: linear-gradient(135deg, #ff6a97, #9333ea);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    position: absolute;
+    left: 20px;
+    font-size: 22px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #ff6a97, #9333ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .title {
-  font-size: 20px;
-  font-weight: 800;
-  background: linear-gradient(to right, #4f46e5, #9333ea);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    font-size: 20px;
+    font-weight: 800;
+    background: linear-gradient(to right, #4f46e5, #9333ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-
-/* ================= CONTAINER ================= */
 
 .container {
-  max-width: 760px;
-  margin: 35px auto;
-  background: white;
-  padding: 35px;
-  border-radius: 28px;
-  box-shadow: 0 15px 40px rgba(79,70,229,0.10);
+    max-width: 760px;
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(79,70,229,0.08);
 }
 
-/* ================= PROGRESS ================= */
-
-.progress-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
+.progress-area {
+    margin-bottom: 25px;
 }
 
-.lesson {
-  font-size: 14px;
-  color: var(--gray);
-}
-
-.sentence-number {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--primary);
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-gray);
+    margin-bottom: 8px;
 }
 
 .progress-bar {
-  width: 100%;
-  height: 8px;
-  background: #eef2f7;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 35px;
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .progress-fill {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #4f46e5, #9333ea);
-  border-radius: 10px;
-  transition: width 0.4s ease;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, #4f46e5, #9333ea);
+    transition: width 0.3s ease;
 }
 
-/* ================= INSTRUCTION ================= */
+.round-area {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.round-badge {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: var(--primary-light);
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 700;
+}
 
 .instruction {
-  font-size: 14px;
-  color: var(--gray);
-  margin-bottom: 12px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text-gray);
 }
 
-.stage {
-  display: inline-block;
-  padding: 7px 15px;
-  border-radius: 20px;
-  background: var(--primary-light);
-  color: var(--primary);
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 20px;
+.sentence-box {
+    margin: 25px 0;
+    padding: 30px 25px;
+    background: #fafbff;
+    border: 2px solid #eef2ff;
+    border-radius: 20px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-
-/* ================= SENTENCE ================= */
 
 #sentenceDisplay {
-  font-size: 27px;
-  line-height: 1.75;
-  font-weight: 700;
-  color: var(--primary);
-  text-align: center;
-  margin: 10px 0 22px;
-  word-break: keep-all;
+    font-size: 25px;
+    line-height: 1.7;
+    font-weight: 700;
+    color: var(--primary-color);
+    word-break: keep-all;
+}
+
+#koreanTranslate {
+    margin-top: 20px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text-gray);
+    word-break: keep-all;
 }
 
 .hidden-word {
-  display: inline-block;
-  min-width: 65px;
-  height: 1.1em;
-  background: #c7d2fe;
-  border-radius: 5px;
-  vertical-align: middle;
+    display: inline-block;
+    min-width: 55px;
+    margin: 0 3px;
+    padding: 0 8px;
+    color: transparent;
+    background: #c7d2fe;
+    border-radius: 5px;
+    user-select: none;
 }
 
-/* ================= KOREAN ================= */
-
-#koreanTranslate {
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--gray);
-  text-align: center;
-  margin-bottom: 30px;
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
 }
-
-/* ================= THREE DOTS ================= */
-
-.read-progress {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin: 25px 0;
-}
-
-.read-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #e2e8f0;
-  transition: all 0.3s;
-}
-
-.read-dot.active {
-  background: var(--primary);
-  transform: scale(1.15);
-}
-
-.read-dot.done {
-  background: var(--secondary);
-}
-
-/* ================= READ MESSAGE ================= */
-
-#readMessage {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text);
-  margin: 20px 0;
-}
-
-/* ================= BUTTON ================= */
 
 .main-btn {
-  border: none;
-  border-radius: 14px;
-  padding: 16px 40px;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 700;
-  color: white;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.main-btn:hover {
-  transform: translateY(-2px);
+    border: none;
+    border-radius: 12px;
+    padding: 14px 25px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.15s;
 }
 
 .main-btn:active {
-  transform: scale(0.97);
+    transform: scale(0.97);
 }
 
-.read-btn {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  box-shadow: 0 8px 20px rgba(79,70,229,0.25);
+.prev {
+    background: #e2e8f0;
+    color: #475569;
 }
 
-.next-btn {
-  background: var(--secondary);
-  display: none;
-  box-shadow: 0 8px 20px rgba(16,185,129,0.20);
+.next {
+    background: var(--primary-color);
+    color: white;
 }
 
-/* ================= COMPLETE ================= */
-
-.complete-message {
-  display: none;
-  padding: 18px;
-  background: #ecfdf5;
-  color: #047857;
-  border-radius: 15px;
-  margin: 20px 0;
-  font-weight: 700;
+.complete {
+    background: var(--secondary-color);
+    color: white;
+    display: none;
 }
 
-/* ================= FOOTER ================= */
+.round-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 25px;
+}
+
+.round-dot {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.round-dot.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.round-dot.done {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.tip {
+    margin-top: 25px;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #64748b;
+}
 
 .footer {
-  text-align: center;
-  color: #94a3b8;
-  font-size: 11px;
-  padding-bottom: 25px;
+    text-align: center;
+    margin: 30px 0;
+    font-size: 11px;
+    color: #94a3b8;
 }
-
-/* ================= MOBILE ================= */
 
 @media (max-width: 600px) {
 
-  .header {
-    height: 62px;
-  }
+    .container {
+        margin: 15px;
+        padding: 20px;
+        border-radius: 20px;
+    }
 
-  .text-logo {
-    font-size: 17px;
-    left: 12px;
-  }
+    .text-logo {
+        font-size: 17px;
+        left: 10px;
+    }
 
-  .title {
-    font-size: 16px;
-  }
+    .title {
+        font-size: 16px;
+    }
 
-  .container {
-    margin: 20px 12px;
-    padding: 25px 20px;
-    border-radius: 22px;
-  }
+    #sentenceDisplay {
+        font-size: 21px;
+    }
 
-  #sentenceDisplay {
-    font-size: 21px;
-    line-height: 1.7;
-  }
+    #koreanTranslate {
+        font-size: 15px;
+    }
 
-  #koreanTranslate {
-    font-size: 14px;
-  }
-
-  .main-btn {
-    width: 100%;
-  }
+    .main-btn {
+        padding: 12px 18px;
+    }
 }
 
 </style>
 </head>
 
-
 <body>
-
-
-<!-- ================= HEADER ================= -->
 
 <div class="header">
 
-  <div class="text-logo">
-    Habitus
-  </div>
+    <div class="text-logo">
+        Habitus
+    </div>
 
-  <div class="title">
-    Habitus Speaking
-  </div>
+    <div class="title">
+        Habitus Speaking
+    </div>
 
 </div>
 
 
-<!-- ================= MAIN ================= -->
-
 <div class="container">
 
+    <!-- 진행률 -->
 
-  <!-- Progress -->
+    <div class="progress-area">
 
-  <div class="progress-top">
+        <div class="progress-text">
 
-    <div class="lesson">
-      Lesson 1
+            <span id="progressText">
+                Sentence 1 / 46
+            </span>
+
+            <span id="percentText">
+                0%
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div
+                id="progressFill"
+                class="progress-fill">
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="sentence-number" id="sentenceNumber">
-      Sentence 1
+
+    <!-- 회차 -->
+
+    <div class="round-area">
+
+        <div
+            id="roundBadge"
+            class="round-badge">
+            1회차
+        </div>
+
+        <div
+            id="instruction"
+            class="instruction">
+
+            영어 문장과 뜻을 보며 소리 내어 읽어 보세요.
+
+        </div>
+
     </div>
 
-  </div>
 
+    <!-- 문장 -->
 
-  <div class="progress-bar">
+    <div class="sentence-box">
 
-    <div
-      class="progress-fill"
-      id="progressFill">
+        <div id="sentenceDisplay">
+            Loading...
+        </div>
+
+        <div id="koreanTranslate">
+            ...
+        </div>
+
     </div>
 
-  </div>
 
+    <!-- 회차 표시 -->
 
-  <!-- Instruction -->
+    <div class="round-buttons">
 
-  <div class="instruction">
-    소리 내어 문장을 읽어 주세요.
-  </div>
+        <div
+            id="round1"
+            class="round-dot active">
+            1
+        </div>
 
+        <div
+            id="round2"
+            class="round-dot">
+            2
+        </div>
 
-  <div
-    class="stage"
-    id="stage">
-    LOOK & READ
-  </div>
+        <div
+            id="round3"
+            class="round-dot">
+            3
+        </div>
 
-
-  <!-- Sentence -->
-
-  <div id="sentenceDisplay">
-    Loading...
-  </div>
-
-
-  <!-- Korean -->
-
-  <div id="koreanTranslate">
-    ...
-  </div>
-
-
-  <!-- Reading Progress -->
-
-  <div class="read-progress">
-
-    <div
-      class="read-dot active"
-      id="dot1">
     </div>
 
-    <div
-      class="read-dot"
-      id="dot2">
+
+    <!-- 버튼 -->
+
+    <div class="controls">
+
+        <button
+            id="prevBtn"
+            class="main-btn prev"
+            onclick="previousSentence()">
+
+            ← 이전 문장
+
+        </button>
+
+        <button
+            id="nextBtn"
+            class="main-btn next"
+            onclick="nextStep()">
+
+            다음 회차 →
+
+        </button>
+
+        <button
+            id="completeBtn"
+            class="main-btn complete"
+            onclick="nextSentence()">
+
+            다음 문장 →
+
+        </button>
+
     </div>
 
-    <div
-      class="read-dot"
-      id="dot3">
+
+    <!-- 학습 팁 -->
+
+    <div class="tip">
+
+        <strong>Speaking 3-Step</strong><br>
+
+        ① 문장과 뜻을 보며 정확하게 읽기 →
+        ② 영어만 보고 읽기 →
+        ③ 핵심 단어를 기억하며 읽기
+
     </div>
-
-  </div>
-
-
-  <!-- Message -->
-
-  <div id="readMessage">
-    1번째 읽기
-  </div>
-
-
-  <!-- Complete -->
-
-  <div
-    class="complete-message"
-    id="completeMessage">
-
-    🎉 Great! 이 문장을 3번 읽었습니다.
-
-  </div>
-
-
-  <!-- Buttons -->
-
-  <button
-    class="main-btn read-btn"
-    id="readBtn"
-    onclick="completeReading()">
-
-    ✓ 읽기 완료
-
-  </button>
-
-
-  <button
-    class="main-btn next-btn"
-    id="nextBtn"
-    onclick="nextSentence()">
-
-    Next Sentence →
-
-  </button>
-
 
 </div>
 
 
 <div class="footer">
-  ⓒViolet Youn Habitus. All Rights reserved.
-</div>
 
+    ⓒ Violet Youn Habitus. All Rights Reserved.
+
+</div>
 
 
 <script>
 
-
 /* =========================================================
-   SENTENCES
+   SPEAKING SENTENCES
    ========================================================= */
 
 const sentences = [
 
-  {
-    en: "What do you want to do in the future?",
-    ko: "너는 미래에 무엇을 하고 싶니?"
-  },
+{
+en: "What do you want to do in the future?",
+ko: "너는 미래에 무엇을 하고 싶니?"
+},
 
-  {
-    en: "Parents and teachers ask students this question all the time.",
-    ko: "부모님과 선생님들은 항상 학생들에게 이 질문을 한다."
-  },
+{
+en: "Parents and teachers ask students this question all the time.",
+ko: "부모님과 선생님들은 항상 학생들에게 이 질문을 한다."
+},
 
-  {
-    en: "But how many students actually know what they want to do in the future?",
-    ko: "하지만 실제로 미래에 무엇을 하고 싶은지 알고 있는 학생은 얼마나 될까?"
-  },
+{
+en: "But how many students actually know what they want to do in the future?",
+ko: "하지만 실제로 미래에 무엇을 하고 싶은지 알고 있는 학생은 얼마나 될까?"
+},
 
-  {
-    en: "Many students are either unsure of what they know or confused about how to find the right career.",
-    ko: "많은 학생들은 자신이 무엇을 알고 있는지 확신하지 못하거나 올바른 진로를 어떻게 찾아야 할지 혼란스러워한다."
-  },
+{
+en: "Many students are either unsure of what they know or confused about how to find the right career.",
+ko: "많은 학생들은 자신이 무엇을 알고 있는지 확신하지 못하거나 올바른 진로를 어떻게 찾아야 할지 혼란스러워한다."
+},
 
-  {
-    en: "The following may help students discover a new way to look at themselves and design a path for their future.",
-    ko: "다음 내용은 학생들이 자신을 바라보는 새로운 방법을 발견하고 미래를 위한 길을 설계하는 데 도움이 될 수 있다."
-  },
+{
+en: "The following may help students discover a new way to look at themselves and design a path for their future.",
+ko: "다음 내용은 학생들이 자신을 바라보는 새로운 방법을 발견하고 미래를 위한 길을 설계하는 데 도움이 될 수 있다."
+},
 
-  {
-    en: "It's hard to climb a mountain without preparation, and designing a career path requires preparation too.",
-    ko: "준비 없이 산을 오르기는 어렵고, 진로를 설계하는 데에도 준비가 필요하다."
-  },
+{
+en: "It's hard to climb a mountain without preparation, and designing a career path requires preparation too.",
+ko: "준비 없이 산을 오르기는 어렵고, 진로를 설계하는 데에도 준비가 필요하다."
+},
 
-  {
-    en: "Begin your career map by taking a blank piece of paper and drawing some dots on it.",
-    ko: "빈 종이 한 장을 가져와 그 위에 점을 몇 개 그리는 것으로 진로 지도를 시작해 보자."
-  },
+{
+en: "Begin your career map by taking a blank piece of paper and drawing some dots on it.",
+ko: "빈 종이 한 장을 가져와 그 위에 점을 몇 개 그리는 것으로 진로 지도를 시작해 보자."
+},
 
-  {
-    en: "These dots will be a representation of who you are at this moment in time, so make as many dots as you can.",
-    ko: "이 점들은 지금 이 순간의 당신이 누구인지를 나타내므로 가능한 한 많은 점을 만들어 보자."
-  },
+{
+en: "These dots will be a representation of who you are at this moment in time, so make as many dots as you can.",
+ko: "이 점들은 지금 이 순간의 당신이 누구인지를 나타내므로 가능한 한 많은 점을 만들어 보자."
+},
 
-  {
-    en: "Write one or two words to describe one aspect of yourself next to each dot.",
-    ko: "각 점 옆에 자신의 한 가지 측면을 설명하는 한두 단어를 써 보자."
-  },
+{
+en: "Write one or two words to describe one aspect of yourself next to each dot.",
+ko: "각 점 옆에 자신의 한 가지 측면을 설명하는 한두 단어를 써 보자."
+},
 
-  {
-    en: "Awards, certifications, and courses taken at school are great places to start.",
-    ko: "수상 경력, 자격증, 학교에서 수강한 과목들은 시작하기에 좋은 소재이다."
-  },
+{
+en: "Awards, certifications, and courses taken at school are great places to start.",
+ko: "수상 경력, 자격증, 학교에서 수강한 과목들은 시작하기에 좋은 소재이다."
+},
 
-  {
-    en: "You can also think about your past and present achievements, interests, and strengths.",
-    ko: "과거와 현재의 성취, 관심사, 그리고 강점에 대해서도 생각해 볼 수 있다."
-  },
+{
+en: "You can also think about your past and present achievements, interests, and strengths.",
+ko: "과거와 현재의 성취, 관심사, 그리고 강점에 대해서도 생각해 볼 수 있다."
+},
 
-  {
-    en: "Parents, teachers, friends, and others you trust can also provide insight into you that you may not have noticed.",
-    ko: "부모님, 선생님, 친구들, 그리고 당신이 신뢰하는 다른 사람들은 당신이 미처 알아차리지 못했던 자신에 대한 통찰을 제공할 수도 있다."
-  },
+{
+en: "Parents, teachers, friends, and others you trust can also provide insight into you that you may not have noticed.",
+ko: "부모님, 선생님, 친구들, 그리고 당신이 신뢰하는 다른 사람들은 당신이 미처 알아차리지 못했던 자신에 대한 통찰을 제공할 수도 있다."
+},
 
-  {
-    en: "If you think it describes you, write it down as a new dot.",
-    ko: "그것이 자신을 잘 설명한다고 생각한다면 새로운 점으로 적어 보자."
-  },
+{
+en: "If you think it describes you, write it down as a new dot.",
+ko: "그것이 자신을 잘 설명한다고 생각한다면 새로운 점으로 적어 보자."
+},
 
-  {
-    en: "Hopefully doing this exercise will show you that there's more to being you than you may have thought.",
-    ko: "바라건대 이 활동을 통해 당신이 생각했던 것보다 자신에게 더 많은 것이 있다는 것을 알게 될 것이다."
-  },
+{
+en: "Hopefully doing this exercise will show you that there's more to being you than you may have thought.",
+ko: "바라건대 이 활동을 통해 당신이 생각했던 것보다 자신에게 더 많은 것이 있다는 것을 알게 될 것이다."
+},
 
-  {
-    en: "Now, take a step back and look at your dots.",
-    ko: "이제 한 걸음 물러서서 자신의 점들을 살펴보자."
-  },
+{
+en: "Now, take a step back and look at your dots.",
+ko: "이제 한 걸음 물러서서 자신의 점들을 살펴보자."
+},
 
-  {
-    en: "A good idea at this stage is to start categorizing your dots.",
-    ko: "이 단계에서 좋은 방법은 자신의 점들을 분류하기 시작하는 것이다."
-  },
+{
+en: "A good idea at this stage is to start categorizing your dots.",
+ko: "이 단계에서 좋은 방법은 자신의 점들을 분류하기 시작하는 것이다."
+},
 
-  {
-    en: "Do you see any patterns emerging?",
-    ko: "어떤 패턴이 나타나는 것이 보이는가?"
-  },
+{
+en: "Do you see any patterns emerging?",
+ko: "어떤 패턴이 나타나는 것이 보이는가?"
+},
 
-  {
-    en: "For example, you might have several dots that highlight scientific skills or maybe some dots that point to creativity.",
-    ko: "예를 들어 과학적 능력을 강조하는 여러 점이나 창의성을 가리키는 점들이 있을 수 있다."
-  },
+{
+en: "For example, you might have several dots that highlight scientific skills or maybe some dots that point to creativity.",
+ko: "예를 들어 과학적 능력을 강조하는 여러 점이나 창의성을 가리키는 점들이 있을 수 있다."
+},
 
-  {
-    en: "These patterns may point to something that is meaningful to you.",
-    ko: "이러한 패턴들은 당신에게 의미 있는 무언가를 가리킬 수도 있다."
-  },
+{
+en: "These patterns may point to something that is meaningful to you.",
+ko: "이러한 패턴들은 당신에게 의미 있는 무언가를 가리킬 수도 있다."
+},
 
-  {
-    en: "Another perspective is to look at what is missing from your map, which you can call 'gaps.'",
-    ko: "또 다른 관점은 자신의 지도에서 빠져 있는 것을 살펴보는 것이며, 이것을 '공백'이라고 부를 수 있다."
-  },
+{
+en: "Another perspective is to look at what is missing from your map, which you can call 'gaps.'",
+ko: "또 다른 관점은 자신의 지도에서 빠져 있는 것을 살펴보는 것이며, 이것을 '공백'이라고 부를 수 있다."
+},
 
-  {
-    en: "For example, you may feel that you need some work on mathematics or a foreign language.",
-    ko: "예를 들어 수학이나 외국어를 더 공부할 필요가 있다고 느낄 수 있다."
-  },
+{
+en: "For example, you may feel that you need some work on mathematics or a foreign language.",
+ko: "예를 들어 수학이나 외국어를 더 공부할 필요가 있다고 느낄 수 있다."
+},
 
-  {
-    en: "At such a young age, you probably don't have certain skills.",
-    ko: "그렇게 어린 나이에는 아마도 아직 갖추지 못한 기술들이 있을 것이다."
-  },
+{
+en: "At such a young age, you probably don't have certain skills.",
+ko: "그렇게 어린 나이에는 아마도 아직 갖추지 못한 기술들이 있을 것이다."
+},
 
-  {
-    en: "Your technical knowledge might be at a beginner level, or your physical conditioning might need work.",
-    ko: "기술적 지식이 초보 수준일 수도 있고 신체적인 단련이 더 필요할 수도 있다."
-  },
+{
+en: "Your technical knowledge might be at a beginner level, or your physical conditioning might need work.",
+ko: "기술적 지식이 초보 수준일 수도 있고 신체적인 단련이 더 필요할 수도 있다."
+},
 
-  {
-    en: "Noticing these gaps will help you in the next steps of your map.",
-    ko: "이러한 공백을 알아차리는 것은 지도의 다음 단계를 진행하는 데 도움이 될 것이다."
-  },
+{
+en: "Noticing these gaps will help you in the next steps of your map.",
+ko: "이러한 공백을 알아차리는 것은 지도의 다음 단계를 진행하는 데 도움이 될 것이다."
+},
 
-  {
-    en: "By comparing your strengths and weaknesses, or the dots and the gaps, your map should show you what you possess and what you need to work on.",
-    ko: "자신의 강점과 약점, 즉 점과 공백을 비교하면 자신의 지도는 자신이 무엇을 가지고 있고 무엇을 노력해야 하는지를 보여 줄 것이다."
-  },
+{
+en: "By comparing your strengths and weaknesses, or the dots and the gaps, your map should show you what you possess and what you need to work on.",
+ko: "자신의 강점과 약점, 즉 점과 공백을 비교하면 자신의 지도는 자신이 무엇을 가지고 있고 무엇을 노력해야 하는지를 보여 줄 것이다."
+},
 
-  {
-    en: "Now, think of a long-term goal, like becoming a musician.",
-    ko: "이제 음악가가 되는 것과 같은 장기적인 목표를 생각해 보자."
-  },
+{
+en: "Now, think of a long-term goal, like becoming a musician.",
+ko: "이제 음악가가 되는 것과 같은 장기적인 목표를 생각해 보자."
+},
 
-  {
-    en: "Your goal doesn't have to be realistic.",
-    ko: "당신의 목표가 반드시 현실적일 필요는 없다."
-  },
+{
+en: "Your goal doesn't have to be realistic.",
+ko: "당신의 목표가 반드시 현실적일 필요는 없다."
+},
 
-  {
-    en: "Remember that the purpose of having the goal clearly written is to map out a way to get there.",
-    ko: "목표를 명확하게 적는 목적은 그 목표에 도달할 방법을 그려 보는 것임을 기억하자."
-  },
+{
+en: "Remember that the purpose of having the goal clearly written is to map out a way to get there.",
+ko: "목표를 명확하게 적는 목적은 그 목표에 도달할 방법을 그려 보는 것임을 기억하자."
+},
 
-  {
-    en: "Understanding where you want to go is an important step, so the next step is laying out a plan to push on to that goal.",
-    ko: "자신이 어디로 가고 싶은지 이해하는 것은 중요한 단계이므로 다음 단계는 그 목표를 향해 나아가기 위한 계획을 세우는 것이다."
-  },
+{
+en: "Understanding where you want to go is an important step, so the next step is laying out a plan to push on to that goal.",
+ko: "자신이 어디로 가고 싶은지 이해하는 것은 중요한 단계이므로 다음 단계는 그 목표를 향해 나아가기 위한 계획을 세우는 것이다."
+},
 
-  {
-    en: "To reach your goal of becoming a musician, you need to fill in the gaps between the dots to create a path toward your goal.",
-    ko: "음악가가 되겠다는 목표에 도달하려면 점들 사이의 공백을 채워 목표를 향한 길을 만들어야 한다."
-  },
+{
+en: "To reach your goal of becoming a musician, you need to fill in the gaps between the dots to create a path toward your goal.",
+ko: "음악가가 되겠다는 목표에 도달하려면 점들 사이의 공백을 채워 목표를 향한 길을 만들어야 한다."
+},
 
-  {
-    en: "Do you need to work on voice techniques or set up a personal website to promote yourself first?",
-    ko: "먼저 발성 기술을 연습하거나 자신을 홍보하기 위한 개인 웹사이트를 만들어야 할까?"
-  },
+{
+en: "Do you need to work on voice techniques or set up a personal website to promote yourself first?",
+ko: "먼저 발성 기술을 연습하거나 자신을 홍보하기 위한 개인 웹사이트를 만들어야 할까?"
+},
 
-  {
-    en: "You can plan other paths by researching what essential skills, training or education, or type of personality you may need to achieve a particular goal.",
-    ko: "특정 목표를 이루기 위해 어떤 필수 기술, 훈련이나 교육, 또는 어떤 성격이 필요한지 조사하면서 다른 경로도 계획할 수 있다."
-  },
+{
+en: "You can plan other paths by researching what essential skills, training or education, or type of personality you may need to achieve a particular goal.",
+ko: "특정 목표를 이루기 위해 어떤 필수 기술, 훈련이나 교육, 또는 어떤 성격이 필요한지 조사하면서 다른 경로도 계획할 수 있다."
+},
 
-  {
-    en: "Talking to or shadowing people considered to be successful is a great way to learn about a specific profession too.",
-    ko: "성공한 사람으로 여겨지는 사람들과 이야기하거나 그들을 따라다니며 관찰하는 것도 특정 직업에 대해 배우는 좋은 방법이다."
-  },
+{
+en: "Talking to or shadowing people considered to be successful is a great way to learn about a specific profession too.",
+ko: "성공한 사람으로 여겨지는 사람들과 이야기하거나 그들을 따라다니며 관찰하는 것도 특정 직업에 대해 배우는 좋은 방법이다."
+},
 
-  {
-    en: "As you fill in each gap with a new dot, you can decide what to do next.",
-    ko: "각 공백을 새로운 점으로 채워 나가면서 다음에 무엇을 할지 결정할 수 있다."
-  },
+{
+en: "As you fill in each gap with a new dot, you can decide what to do next.",
+ko: "각 공백을 새로운 점으로 채워 나가면서 다음에 무엇을 할지 결정할 수 있다."
+},
 
-  {
-    en: "Each path is unique and has different challenges.",
-    ko: "각각의 길은 독특하며 서로 다른 도전 과제를 가지고 있다."
-  },
+{
+en: "Each path is unique and has different challenges.",
+ko: "각각의 길은 독특하며 서로 다른 도전 과제를 가지고 있다."
+},
 
-  {
-    en: "Now, instead of aimlessly trying random things, you can look at your map to see what to do next.",
-    ko: "이제 무작정 아무것이나 시도하는 대신 자신의 지도를 보고 다음에 무엇을 해야 할지 알 수 있다."
-  },
+{
+en: "Now, instead of aimlessly trying random things, you can look at your map to see what to do next.",
+ko: "이제 무작정 아무것이나 시도하는 대신 자신의 지도를 보고 다음에 무엇을 해야 할지 알 수 있다."
+},
 
-  {
-    en: "Just look for a gap to fill.",
-    ko: "채워야 할 공백을 찾아보자."
-  },
+{
+en: "Just look for a gap to fill.",
+ko: "채워야 할 공백을 찾아보자."
+},
 
-  {
-    en: "Deciding which gap to fill is up to you, but your dot map should show you that whatever you choose, you will be moving toward your goal.",
-    ko: "어떤 공백을 채울지는 당신에게 달려 있지만, 자신의 점 지도는 무엇을 선택하든 목표를 향해 나아가고 있다는 것을 보여 줄 것이다."
-  },
+{
+en: "Deciding which gap to fill is up to you, but your dot map should show you that whatever you choose, you will be moving toward your goal.",
+ko: "어떤 공백을 채울지는 당신에게 달려 있지만, 자신의 점 지도는 무엇을 선택하든 목표를 향해 나아가고 있다는 것을 보여 줄 것이다."
+},
 
-  {
-    en: "There is no need to rush anything though.",
-    ko: "하지만 무엇이든 서두를 필요는 없다."
-  },
+{
+en: "There is no need to rush anything though.",
+ko: "하지만 무엇이든 서두를 필요는 없다."
+},
 
-  {
-    en: "Take your time filling the gaps.",
-    ko: "시간을 들여 천천히 공백을 채워 보자."
-  },
+{
+en: "Take your time filling the gaps.",
+ko: "시간을 들여 천천히 공백을 채워 보자."
+},
 
-  {
-    en: "Since you've designed your own map, each gap you fill and dot you make 'levels you up.'",
-    ko: "자신만의 지도를 설계했기 때문에 채우는 각각의 공백과 만드는 각각의 점이 당신의 수준을 한 단계씩 높여 준다."
-  },
+{
+en: "Since you've designed your own map, each gap you fill and dot you make 'levels you up.'",
+ko: "자신만의 지도를 설계했기 때문에 채우는 각각의 공백과 만드는 각각의 점이 당신의 수준을 한 단계씩 높여 준다."
+},
 
-  {
-    en: "If you've made it this far, you probably realize some dots will take time to complete, and other dots will take great effort.",
-    ko: "여기까지 왔다면 어떤 점들은 완성하는 데 시간이 걸리고 다른 점들은 많은 노력이 필요하다는 것을 아마 깨달았을 것이다."
-  },
+{
+en: "If you've made it this far, you probably realize some dots will take time to complete, and other dots will take great effort.",
+ko: "여기까지 왔다면 어떤 점들은 완성하는 데 시간이 걸리고 다른 점들은 많은 노력이 필요하다는 것을 아마 깨달았을 것이다."
+},
 
-  {
-    en: "No one knows what kind of person you will be five or ten years down the road.",
-    ko: "5년 또는 10년 후에 당신이 어떤 사람이 될지는 아무도 모른다."
-  },
+{
+en: "No one knows what kind of person you will be five or ten years down the road.",
+ko: "5년 또는 10년 후에 당신이 어떤 사람이 될지는 아무도 모른다."
+},
 
-  {
-    en: "Each investment you make in yourself now will grow into expertise and experience in the future.",
-    ko: "지금 자신에게 하는 각각의 투자는 미래에 전문성과 경험으로 성장할 것이다."
-  },
+{
+en: "Each investment you make in yourself now will grow into expertise and experience in the future.",
+ko: "지금 자신에게 하는 각각의 투자는 미래에 전문성과 경험으로 성장할 것이다."
+},
 
-  {
-    en: "The dots are a way to see yourself in the present and then imagine yourself in as many futures as you can.",
-    ko: "점들은 현재의 자신을 바라보고 가능한 한 많은 미래의 자신의 모습을 상상하는 방법이다."
-  },
+{
+en: "The dots are a way to see yourself in the present and then imagine yourself in as many futures as you can.",
+ko: "점들은 현재의 자신을 바라보고 가능한 한 많은 미래의 자신의 모습을 상상하는 방법이다."
+},
 
-  {
-    en: "It's up to you to start connecting your dots now.",
-    ko: "지금 자신의 점들을 연결하기 시작하는 것은 당신에게 달려 있다."
-  }
+{
+en: "It's up to you to start connecting your dots now.",
+ko: "지금 자신의 점들을 연결하기 시작하는 것은 당신에게 달려 있다."
+}
 
 ];
 
 
 /* =========================================================
-   VARIABLES
+   현재 상태
    ========================================================= */
 
 let currentIndex = 0;
-let readingCount = 0;
+
+/*
+   1 = 1회차
+   2 = 2회차
+   3 = 3회차
+*/
+
+let currentRound = 1;
 
 
 /* =========================================================
-   LOAD SENTENCE
+   문장 불러오기
    ========================================================= */
 
 function loadSentence() {
 
-  readingCount = 0;
+    const sentence = sentences[currentIndex];
 
-  const sentence = sentences[currentIndex];
+    document.getElementById("koreanTranslate").innerText =
+        sentence.ko;
 
-  document.getElementById("sentenceNumber").innerText =
-    `Sentence ${currentIndex + 1}`;
+    updateRound();
 
-  document.getElementById("progressFill").style.width =
-    ((currentIndex + 1) / sentences.length * 100) + "%";
-
-  document.getElementById("sentenceDisplay").innerText =
-    sentence.en;
-
-  document.getElementById("koreanTranslate").innerText =
-    sentence.ko;
-
-  document.getElementById("stage").innerText =
-    "LOOK & READ";
-
-  document.getElementById("readMessage").innerText =
-    "1번째 읽기";
-
-  document.getElementById("readBtn").style.display =
-    "inline-block";
-
-  document.getElementById("nextBtn").style.display =
-    "none";
-
-  document.getElementById("completeMessage").style.display =
-    "none";
-
-  updateDots();
+    updateProgress();
 
 }
 
 
 /* =========================================================
-   READING COMPLETE
+   회차 표시
    ========================================================= */
 
-function completeReading() {
+function updateRound() {
 
-  readingCount++;
+    const sentence = sentences[currentIndex];
 
-  updateDots();
+    const display =
+        document.getElementById("sentenceDisplay");
 
+    const badge =
+        document.getElementById("roundBadge");
 
-  /* 1회차 */
-
-  if (readingCount === 1) {
-
-    document.getElementById("stage").innerText =
-      "READ AGAIN";
-
-    document.getElementById("readMessage").innerText =
-      "좋아요! 한 번 더 읽어 보세요.";
-
-  }
+    const instruction =
+        document.getElementById("instruction");
 
 
-  /* 2회차 */
+    /* 1회차 */
 
-  else if (readingCount === 2) {
+    if (currentRound === 1) {
 
-    document.getElementById("stage").innerText =
-      "REMEMBER & READ";
+        display.innerText = sentence.en;
 
-    document.getElementById("readMessage").innerText =
-      "좋아요! 마지막으로 한 번 더 읽어 보세요.";
+        badge.innerText = "1회차";
 
-  }
-
-
-  /* 3회차 */
-
-  else if (readingCount === 3) {
-
-    document.getElementById("stage").innerText =
-      "FINAL READ";
-
-    document.getElementById("readMessage").innerText =
-      "Excellent! 3번 읽기를 완료했습니다.";
-
-    document.getElementById("completeMessage").style.display =
-      "block";
-
-    document.getElementById("readBtn").style.display =
-      "none";
-
-    document.getElementById("nextBtn").style.display =
-      "inline-block";
-
-  }
-
-}
-
-
-/* =========================================================
-   DOTS
-   ========================================================= */
-
-function updateDots() {
-
-  for (let i = 1; i <= 3; i++) {
-
-    const dot =
-      document.getElementById("dot" + i);
-
-    dot.classList.remove("active");
-    dot.classList.remove("done");
-
-    if (i < readingCount + 1) {
-
-      dot.classList.add("done");
+        instruction.innerText =
+            "영어 문장과 뜻을 보며 소리 내어 읽어 보세요.";
 
     }
 
-    else if (i === readingCount + 1 && readingCount < 3) {
 
-      dot.classList.add("active");
+    /* 2회차 */
+
+    else if (currentRound === 2) {
+
+        display.innerText = sentence.en;
+
+        badge.innerText = "2회차";
+
+        instruction.innerText =
+            "이번에는 영어 문장만 보고 소리 내어 읽어 보세요.";
 
     }
 
-  }
+
+    /* 3회차 */
+
+    else {
+
+        display.innerHTML =
+            hideWords(sentence.en);
+
+        badge.innerText = "3회차";
+
+        instruction.innerText =
+            "가려진 단어를 기억하며 문장 전체를 소리 내어 읽어 보세요.";
+
+    }
+
+
+    updateRoundDots();
+
+    updateButtons();
 
 }
 
 
 /* =========================================================
-   NEXT SENTENCE
+   3회차 단어 가리기
+   ========================================================= */
+
+function hideWords(sentence) {
+
+    /*
+       문장을 단어 단위로 분리합니다.
+       너무 짧은 단어는 가리지 않습니다.
+    */
+
+    const words = sentence.split(" ");
+
+    /*
+       전체 단어 중 약 30~35%를 가립니다.
+       단, 짧은 문장도 최소 1개 이상 가립니다.
+    */
+
+    const candidates = [];
+
+    words.forEach((word, index) => {
+
+        const cleanWord =
+            word.replace(/[^a-zA-Z]/g, "");
+
+        if (cleanWord.length >= 4) {
+            candidates.push(index);
+        }
+
+    });
+
+
+    /*
+       일정하게 가리기 위해
+       단어 위치를 계산합니다.
+    */
+
+    const hideCount =
+        Math.max(
+            1,
+            Math.floor(candidates.length * 0.35)
+        );
+
+
+    const hideIndexes = [];
+
+
+    for (
+        let i = 0;
+        i < hideCount;
+        i++
+    ) {
+
+        const position =
+            Math.floor(
+                i * candidates.length / hideCount
+            );
+
+        hideIndexes.push(
+            candidates[position]
+        );
+
+    }
+
+
+    return words.map((word, index) => {
+
+        if (hideIndexes.includes(index)) {
+
+            const cleanWord =
+                word.replace(/[^a-zA-Z]/g, "");
+
+            const punctuation =
+                word.replace(/[a-zA-Z]/g, "");
+
+            return `
+                <span
+                    class="hidden-word"
+                    style="min-width:${Math.max(
+                        45,
+                        cleanWord.length * 11
+                    )}px">
+                    ${cleanWord}
+                </span>${punctuation}
+            `;
+
+        }
+
+        return word;
+
+    }).join(" ");
+
+}
+
+
+/* =========================================================
+   회차 점 표시
+   ========================================================= */
+
+function updateRoundDots() {
+
+    for (let i = 1; i <= 3; i++) {
+
+        const dot =
+            document.getElementById(
+                "round" + i
+            );
+
+        dot.classList.remove("active");
+        dot.classList.remove("done");
+
+        if (i < currentRound) {
+            dot.classList.add("done");
+        }
+
+        if (i === currentRound) {
+            dot.classList.add("active");
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   버튼 상태
+   ========================================================= */
+
+function updateButtons() {
+
+    const nextBtn =
+        document.getElementById("nextBtn");
+
+    const completeBtn =
+        document.getElementById("completeBtn");
+
+
+    if (currentRound < 3) {
+
+        nextBtn.style.display = "block";
+        completeBtn.style.display = "none";
+
+        nextBtn.innerText =
+            "다음 회차 →";
+
+    }
+
+    else {
+
+        nextBtn.style.display = "none";
+        completeBtn.style.display = "block";
+
+        completeBtn.innerText =
+            "다음 문장 →";
+
+    }
+
+}
+
+
+/* =========================================================
+   다음 단계
+   ========================================================= */
+
+function nextStep() {
+
+    if (currentRound < 3) {
+
+        currentRound++;
+
+        updateRound();
+
+    }
+
+}
+
+
+/* =========================================================
+   다음 문장
    ========================================================= */
 
 function nextSentence() {
 
-  if (currentIndex < sentences.length - 1) {
+    if (
+        currentIndex <
+        sentences.length - 1
+    ) {
 
-    currentIndex++;
+        currentIndex++;
 
-    loadSentence();
+        currentRound = 1;
 
-  }
+        loadSentence();
 
-  else {
+    }
 
-    showComplete();
+    else {
 
-  }
+        showCompletion();
+
+    }
 
 }
 
 
 /* =========================================================
-   ALL COMPLETE
+   이전 문장
    ========================================================= */
 
-function showComplete() {
+function previousSentence() {
 
-  document.getElementById("sentenceDisplay").innerHTML =
-    "🎉 Lesson Complete!";
+    if (currentRound > 1) {
 
-  document.getElementById("koreanTranslate").innerText =
-    "모든 문장을 3번씩 읽었습니다.";
+        currentRound--;
 
-  document.getElementById("stage").innerText =
-    "MISSION COMPLETE";
+        updateRound();
 
-  document.getElementById("readMessage").innerText =
-    "정말 잘했습니다!";
+        return;
 
-  document.getElementById("readBtn").style.display =
-    "none";
+    }
 
-  document.getElementById("nextBtn").style.display =
-    "none";
 
-  document.getElementById("completeMessage").style.display =
-    "block";
+    if (currentIndex > 0) {
 
-  document.getElementById("completeMessage").innerText =
-    "🏆 Lesson 1 완료! 모든 문장을 3번씩 읽었습니다.";
+        currentIndex--;
+
+        currentRound = 3;
+
+        loadSentence();
+
+    }
 
 }
 
 
 /* =========================================================
-   START
+   진행률
+   ========================================================= */
+
+function updateProgress() {
+
+    const total =
+        sentences.length;
+
+    const current =
+        currentIndex + 1;
+
+
+    document.getElementById(
+        "progressText"
+    ).innerText =
+        `Sentence ${current} / ${total}`;
+
+
+    const percent =
+        Math.round(
+            (currentIndex / total) * 100
+        );
+
+
+    document.getElementById(
+        "percentText"
+    ).innerText =
+        `${percent}%`;
+
+
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+        `${percent}%`;
+
+}
+
+
+/* =========================================================
+   전체 완료
+   ========================================================= */
+
+function showCompletion() {
+
+    document.querySelector(
+        ".sentence-box"
+    ).innerHTML = `
+
+        <div style="
+            font-size:50px;
+            margin-bottom:15px;
+        ">
+            🎉
+        </div>
+
+        <div style="
+            font-size:28px;
+            font-weight:800;
+            color:#4f46e5;
+        ">
+            Great Job!
+        </div>
+
+        <div style="
+            margin-top:15px;
+            font-size:16px;
+            color:#64748b;
+            line-height:1.7;
+        ">
+            모든 문장을 3회씩<br>
+            소리 내어 읽었습니다.
+        </div>
+
+    `;
+
+
+    document.getElementById(
+        "koreanTranslate"
+    ).innerText =
+        "오늘의 Speaking Practice를 완료했습니다!";
+
+
+    document.getElementById(
+        "nextBtn"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "completeBtn"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "prevBtn"
+    ).innerText = "← 다시 보기";
+
+
+    document.getElementById(
+        "progressFill"
+    ).style.width = "100%";
+
+
+    document.getElementById(
+        "percentText"
+    ).innerText = "100%";
+
+}
+
+
+/* =========================================================
+   시작
    ========================================================= */
 
 loadSentence();
